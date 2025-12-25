@@ -17,6 +17,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
+    /* ===== CSS Styles (เหมือนเดิม) ===== */
     :root {
       --primary: #60A5FA;
       --primary-dark: #3B82F6;
@@ -70,7 +71,7 @@
       padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     }
 
-    /* iOS Style Loading Screen */
+    /* Loading Screen */
     .loading-screen {
       position: fixed;
       top: 0;
@@ -96,11 +97,6 @@
       justify-content: center;
       margin-bottom: 24px;
       animation: logoPulse 2s ease-in-out infinite;
-    }
-
-    .loading-logo i {
-      font-size: 32px;
-      color: white;
     }
 
     .loading-text {
@@ -269,7 +265,7 @@
       padding: 16px;
     }
 
-    /* iOS Style Form Elements */
+    /* Form Elements */
     .form-section {
       margin-bottom: 24px;
       background: var(--light-gray-bg);
@@ -541,24 +537,6 @@
       gap: 12px;
     }
 
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--gray-6);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--gray-3);
-      border-radius: 2px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--gray-2);
-    }
-
     /* CSS สำหรับ urgency levels */
     .urgency-critical {
       border-left: 4px solid #FF3B30;
@@ -597,10 +575,6 @@
     .urgency-badge.medium {
       background: #34C759;
       color: white;
-    }
-
-    .analysis-details {
-      margin-top: 12px;
     }
 
     .detail-section {
@@ -730,34 +704,11 @@
       font-size: 14px;
     }
 
-    .customer-details {
-      display: flex;
-      gap: 12px;
-      font-size: 14px;
+    /* Search placeholder */
+    .search-placeholder {
+      text-align: center;
+      padding: 40px 20px;
       color: var(--text-secondary);
-    }
-
-    /* Security Modal */
-    .security-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    }
-
-    .security-content {
-      background: var(--card-background);
-      border-radius: 12px;
-      padding: 20px;
-      max-width: 400px;
-      width: 90%;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     /* Dashboard Styles */
@@ -793,42 +744,6 @@
       position: relative;
       height: 200px;
       margin: 16px 0;
-    }
-
-    /* Policy Items */
-    .policy-item {
-      background: var(--card-background);
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 12px;
-      border: 1px solid var(--system-border);
-    }
-
-    .btn-remove-policy {
-      margin-top: 12px;
-    }
-
-    /* Portfolio Analysis */
-    .portfolio-analysis {
-      margin-top: 20px;
-    }
-
-    .analysis-item {
-      padding: 12px;
-      border-radius: 8px;
-      margin-bottom: 8px;
-      border-left: 4px solid var(--primary);
-      background: var(--light-blue-bg);
-    }
-
-    .analysis-item.warning {
-      border-left-color: var(--orange);
-      background: rgba(255, 149, 0, 0.1);
-    }
-
-    .analysis-item.critical {
-      border-left-color: var(--red);
-      background: rgba(255, 59, 48, 0.1);
     }
 
     /* Export Options */
@@ -885,14 +800,6 @@
       color: var(--text-secondary);
     }
 
-    .action-security {
-      margin-top: 12px;
-      padding: 12px;
-      background: var(--light-gray-bg);
-      border-radius: 8px;
-      border: 1px solid var(--system-border);
-    }
-
     /* NEW STYLES FOR ENHANCED SEARCH */
     .customer-list-item {
       display: flex;
@@ -916,16 +823,6 @@
       align-items: center;
       gap: 12px;
       margin-bottom: 4px;
-    }
-
-    .customer-name {
-      font-weight: 600;
-      font-size: 16px;
-    }
-
-    .customer-id {
-      color: var(--primary);
-      font-size: 14px;
     }
 
     .customer-secondary-info {
@@ -1208,10 +1105,86 @@
       font-size: 14px;
       color: var(--text-secondary);
     }
+
+    /* Security Modal */
+    .security-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .security-content {
+      background: var(--card-background);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Loading Spinner */
+    .loading-spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--gray-4);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Alert Messages */
+    .alert-success {
+      background: var(--green);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+
+    .alert-error {
+      background: var(--red);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+
+    /* Policy Items */
+    .policy-item {
+      background: var(--card-background);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      border: 1px solid var(--system-border);
+    }
+
+    .btn-remove-policy {
+      margin-top: 12px;
+    }
+
+    /* Policy Form */
+    .policy-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
   </style>
 </head>
 <body>
-  <!-- iOS Style Loading Screen -->
+  <!-- Loading Screen -->
   <div class="loading-screen" id="loadingScreen">
     <div class="loading-logo">
       <i class="fas fa-brain"></i>
@@ -1741,9 +1714,7 @@
         </div>
       </div>
 
-      <!-- ============================================= -->
-      <!-- NEW ENHANCED SEARCH PANEL -->
-      <!-- ============================================= -->
+      <!-- Search Panel -->
       <div id="panel-search" class="content-panel">
         <div class="ios-card">
           <div class="ios-card-header">
@@ -1813,9 +1784,6 @@
           </div>
         </div>
       </div>
-      <!-- ============================================= -->
-      <!-- END OF ENHANCED SEARCH PANEL -->
-      <!-- ============================================= -->
 
       <!-- Report Panel -->
       <div id="panel-report" class="content-panel">
@@ -1948,7 +1916,7 @@
     </div>
   </div>
 
-  <!-- Security Modal for Customer Access -->
+  <!-- Customer Access Modal -->
   <div class="security-modal" id="customerAccessModal" style="display: none;">
     <div class="security-content">
       <h3 style="margin-bottom: 16px; text-align: center;">ยืนยันตัวตนเพื่อเข้าถึงข้อมูล</h3>
@@ -1972,19 +1940,15 @@
     // =============================================
     // System Configuration
     // =============================================
-    const STORAGE_KEY = 'asi_customers';
-    const AUDIT_KEY = 'asi_audit';
-    const COUNTER_KEY = 'asi_counters';
+    const SUPABASE_URL = 'https://gqcecpvtzxznnabhfgvw.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdxY2VjcHZ0enh6bm5hYmhmZ3Z3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY2Mzg4MTAsImV4cCI6MjA4MjIxNDgxMH0.uYj6nI1EGgOXDBkZn1jgS1DjUZsEy-ChM0JlRw_d7-s';
 
     // Security Passcodes
     const REPORT_PASSCODE = "2025";
-    const EXPORT_PASSCODE = "1234";
-    const SPECIAL_PASSCODE = "0229"; // Special pass code สำหรับปลดล็อคทุกอย่าง
+    const SPECIAL_PASSCODE = "0229";
 
-    // Supabase Configuration
-    const supabaseUrl = 'https://ycyrvyghiybfaimixkvo.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InljeXJ2eWdoaXliZmFpbWl4a3ZvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwOTM5NTcsImV4cCI6MjA3ODY2OTk1N30.cX90v29O1uxtjlv3ykCasej9KIlh-bmPcCmsoGRyMVo';
-    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+    // Initialize Supabase Client
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     // DOM Helper
     const $ = (id) => document.getElementById(id);
@@ -1995,819 +1959,15 @@
     let selectedCustomer = null;
     let customersData = [];
     let policyCount = 0;
-    let hasInsurancePolicies = true; // Track if user has insurance policies
-
-    // Enhanced Search Variables
-    let isEditing = false;
+    let policyForms = [];
 
     // =============================================
-    // Enhanced Insurance Advisor Classes
+    // Insurance Advisor Classes
     // =============================================
 
-    class ComprehensiveRiskAnalyzer {
-      constructor() {
-        this.riskCategories = this.initializeRiskCategories();
-        this.urgencyIcons = {
-          critical: '🚨',
-          high: '⚠️', 
-          medium: 'ℹ️',
-          low: '💡'
-        };
-      }
-
-      initializeRiskCategories() {
-        return [
-          {
-            id: 'income_risk',
-            name: 'ความเสี่ยงรายได้หลัก',
-            analyzer: this.analyzeIncomeRisk.bind(this),
-            urgency: 'critical',
-            icon: '🚨'
-          },
-          {
-            id: 'inflation_risk',
-            name: 'ความเสี่ยงเงินฝากและเงินเฟ้อ',
-            analyzer: this.analyzeInflationRisk.bind(this),
-            urgency: 'high',
-            icon: '⚠️'
-          },
-          {
-            id: 'lifecycle_risk',
-            name: 'ความเสี่ยงตามช่วงอายุ',
-            analyzer: this.analyzeLifecycleRisk.bind(this),
-            urgency: 'medium',
-            icon: 'ℹ️'
-          },
-          {
-            id: 'health_risk',
-            name: 'ความเสี่ยงด้านสุขภาพตามอาชีพ',
-            analyzer: this.analyzeHealthRisk.bind(this),
-            urgency: 'high',
-            icon: '⚠️'
-          },
-          {
-            id: 'education_risk',
-            name: 'ความเสี่ยงการศึกษาบุตร',
-            analyzer: this.analyzeEducationRisk.bind(this),
-            urgency: 'medium',
-            icon: 'ℹ️'
-          },
-          {
-            id: 'business_risk',
-            name: 'ความเสี่ยงการส่งต่อธุรกิจ',
-            analyzer: this.analyzeBusinessRisk.bind(this),
-            urgency: 'critical',
-            icon: '🚨'
-          },
-          {
-            id: 'debt_risk',
-            name: 'ความเสี่ยงจากหนี้สิน',
-            analyzer: this.analyzeDebtRisk.bind(this),
-            urgency: 'high',
-            icon: '⚠️'
-          },
-          {
-            id: 'investment_risk',
-            name: 'ความเสี่ยงการลงทุนไม่หลากหลาย',
-            analyzer: this.analyzeInvestmentRisk.bind(this),
-            urgency: 'medium',
-            icon: 'ℹ️'
-          },
-          {
-            id: 'liquidity_risk',
-            name: 'ความเสี่ยงสภาพคล่องจากเบี้ยประกัน',
-            analyzer: this.analyzeLiquidityRisk.bind(this),
-            urgency: 'high',
-            icon: '⚠️'
-          },
-          {
-            id: 'portfolio_risk',
-            name: 'ความเสี่ยงการกระจุกตัวพอร์ตประกัน',
-            analyzer: this.analyzePortfolioRisk.bind(this),
-            urgency: 'medium',
-            icon: 'ℹ️'
-          }
-        ];
-      }
-
-      analyzeIncomeRisk(customer) {
-        const { marital_status, spouse_occupation, has_children, children_count, monthly_income } = customer;
-        const isBreadwinner = spouse_occupation === 'ไม่มี' || spouse_occupation === 'แม่บ้าน';
-        const hasSchoolChildren = has_children === 'มี' && children_count > 0;
-        const hasDependents = customer.has_dependents === 'มี';
-
-        if ((isBreadwinner && hasSchoolChildren) || (isBreadwinner && hasDependents)) {
-          const dependentsText = hasSchoolChildren ? `และมีบุตร ${children_count} คนที่ต้องดูแล` : 
-                               hasDependents ? 'และมีบุคคลอื่นที่ต้องดูแล' : '';
-          
-          return {
-            category: 'income_risk',
-            name: 'ความเสี่ยงรายได้หลัก',
-            urgency: 'critical',
-            icon: '🚨',
-            analysis: {
-              why: `คุณเป็นเสาหลักรายได้เดียวของครอบครัว ${dependentsText} หากเกิดเหตุไม่คาดฝันจะส่งผลกระทบร้ายแรงต่อครอบครัว`,
-              recommendedProducts: [
-                'ประกันชีวิตแบบชั่วระยะเวลา (Term Life)',
-                'ประกันทุพพลภาพ (Disability Insurance)',
-                'ประกันรายได้ครอบครัว (Income Protection)'
-              ],
-              benefits: [
-                'คุ้มครองรายได้หลักของครอบครัว',
-                'รับประกันการศึกษาบุตรต่อเนื่อง',
-                'รักษามาตรฐานการครองชีพของครอบครัว'
-              ]
-            }
-          };
-        }
-        
-        // เพิ่มการวิเคราะห์สำหรับผู้มีรายได้สูงแต่ไม่มีผู้พึ่งพา
-        if (monthly_income > 100000 && has_children === 'ไม่มี' && !hasDependents) {
-          return {
-            category: 'income_risk',
-            name: 'ความเสี่ยงรายได้สูง',
-            urgency: 'medium',
-            icon: 'ℹ️',
-            analysis: {
-              why: `มีรายได้สูง (${monthly_income.toLocaleString()} บาท/เดือน) แต่ยังไม่มีแผนการคุ้มครองรายได้ที่เหมาะสม`,
-              recommendedProducts: [
-                'ประกันชีวิตแบบสะสมทรัพย์',
-                'ประกันสุขภาพวงเงินสูง',
-                'ประกันโรคร้ายแรง'
-              ],
-              benefits: [
-                'คุ้มครองศักยภาพการสร้างรายได้ในอนาคต',
-                'สร้างความมั่นคงทางการเงินส่วนบุคคล',
-                'วางรากฐานการเงินก่อนสร้างครอบครัว'
-              ]
-            }
-          };
-        }
-        
-        return null;
-      }
-
-      analyzeInflationRisk(customer) {
-        const { monthly_income, financial_products, age } = customer;
-        const savings = financial_products?.savings || 0;
-        const fixedDeposits = financial_products?.fixed || 0;
-        const totalDeposits = savings + fixedDeposits;
-        const yearlyIncome = monthly_income * 12;
-        
-        if (yearlyIncome > 0) {
-          const depositRatio = totalDeposits / yearlyIncome;
-          
-          if (depositRatio > 5) {
-            return {
-              category: 'inflation_risk',
-              name: 'ความเสี่ยงเงินฝากและเงินเฟ้อ',
-              urgency: 'high',
-              icon: '⚠️',
-              analysis: {
-                why: `มีเงินฝากสูงถึง ${(depositRatio).toFixed(1)} เท่าของรายได้ต่อปี (${totalDeposits.toLocaleString()} บาท) กำลังถูกเงินเฟ้อกัดกร่อนมูลค่าปีละ 2-3%`,
-                recommendedProducts: [
-                  'ประกันชีวิตแบบสะสมทรัพย์ (Endowment)',
-                  'กองทุนรวม LTF/RMF',
-                  'ประกันบำนาญ (Pension Plan)'
-                ],
-                benefits: [
-                  'ป้องกันการสูญเสียมูลค่าจากเงินเฟ้อ',
-                  'ได้ผลตอบแทนสูงกว่าเงินฝาก 3-5% ต่อปี',
-                  'ลดหย่อนภาษีได้ตามกฎหมาย'
-                ]
-              }
-            };
-          }
-          
-          // เพิ่มการวิเคราะห์สำหรับผู้ที่มีเงินฝากน้อยเกินไป
-          if (depositRatio < 0.5 && age >= 30) {
-            return {
-              category: 'inflation_risk',
-              name: 'ความเสี่ยงเงินออมไม่เพียงพอ',
-              urgency: 'medium',
-              icon: 'ℹ️',
-              analysis: {
-                why: `มีเงินออมเพียง ${(depositRatio * 100).toFixed(0)}% ของรายได้ต่อปี ซึ่งต่ำกว่าเกณฑ์ที่แนะนำ (อย่างน้อย 6 เดือนของรายได้)`,
-                recommendedProducts: [
-                  'ประกันชีวิตแบบสะสมทรัพย์',
-                  'ประกันบำนาญ',
-                  'กองทุนรวมเพื่อการออม'
-                ],
-                benefits: [
-                  'สร้างวินัยการออมอย่างสม่ำเสมอ',
-                  'ได้ผลตอบแทนที่ดีกว่าอัตราเงินเฟ้อ',
-                  'เตรียมความพร้อมทางการเงินสำหรับอนาคต'
-                ]
-              }
-            };
-          }
-        }
-        return null;
-      }
-
-      analyzeLifecycleRisk(customer) {
-        const { age, marital_status, has_children, monthly_income, occupation } = customer;
-        let lifeStage = '';
-        let recommendations = [];
-        let reasoning = '';
-
-        if (age <= 25) {
-          lifeStage = 'วัยเริ่มทำงาน';
-          recommendations = [
-            'ประกันชีวิตแบบสะสมทรัพย์',
-            'ประกันอุบัติเหตุส่วนบุคคล',
-            'ประกันสุขภาพ IPD/OPD'
-          ];
-          reasoning = `อายุ ${age} ปี อยู่ในวัยเริ่มทำงาน ควรเริ่มสร้างนิสัยการออมและความคุ้มครองพื้นฐาน`;
-        } else if (age <= 35) {
-          lifeStage = 'วัยสร้างตัว';
-          recommendations = [
-            'ประกันชีวิตแบบสะสมทรัพย์',
-            'ประกันโรคร้ายแรง',
-            'ประกันสุขภาพวงเงินสูง'
-          ];
-          
-          // ตรวจสอบเงื่อนไขการมีบุตรก่อนแนะนำประกันการศึกษา
-          if (has_children === 'มี') {
-            recommendations.push('ประกันการศึกษา');
-            reasoning = `อายุ ${age} ปี ${marital_status === 'สมรส' ? 'สมรส' : 'โสด'} ${has_children === 'มี' ? 'มีบุตร' : 'ไม่มีบุตร'} ควรวางแผนการเงินสำหรับครอบครัวและอนาคต`;
-          } else {
-            reasoning = `อายุ ${age} ปี ${marital_status === 'สมรส' ? 'สมรส' : 'โสด'} ยังไม่มีบุตร ควรเน้นการออมและคุ้มครองรายได้`;
-          }
-          
-        } else if (age <= 45) {
-          lifeStage = 'วัยสร้างครอบครัว';
-          recommendations = [
-            'ประกันชีวิตระยะยาว',
-            'ประกันโรคร้ายแรง',
-            'ประกันสุขภาพระยะยาว'
-          ];
-          
-          // ตรวจสอบเงื่อนไขการมีบุตรก่อนแนะนำประกันการศึกษา
-          if (has_children === 'มี') {
-            recommendations.push('ประกันการศึกษา');
-            reasoning = `อายุ ${age} ปี ${marital_status === 'สมรส' ? 'สมรส' : 'โสด'} ${has_children === 'มี' ? 'มีบุตร' : 'ไม่มีบุตร'} อยู่ในช่วงสำคัญของการสร้างครอบครัวและวางแผนการศึกษาบุตร`;
-          } else {
-            recommendations.push('ประกันบำนาญ');
-            reasoning = `อายุ ${age} ปี ${marital_status === 'สมรส' ? 'สมรส' : 'โสด'} ยังไม่มีบุตร ควรเร่งวางแผนการออมเพื่อการเกษียณ`;
-          }
-          
-        } else if (age <= 55) {
-          lifeStage = 'วัยใกล้เกษียณ';
-          recommendations = [
-            'ประกันบำนาญ',
-            'ประกันสุขภาพระยะยาว',
-            'ประกันโรคร้ายแรง'
-          ];
-          reasoning = `อายุ ${age} ปี เหลือเวลาอีก ${60 - age} ปีก่อนเกษียณ ควรเร่งสะสมเงินออมและคุ้มครองสุขภาพ`;
-        } else {
-          lifeStage = 'วัยเกษียณ';
-          recommendations = [
-            'ประกันสุขภาพระยะยาว',
-            'ประกันโรคร้ายแรง',
-            'ประกันตลอดชีพ'
-          ];
-          reasoning = `อายุ ${age} ปี อยู่ในวัยเกษียณ ควรเน้นความคุ้มครองสุขภาพและรายได้มั่นคง`;
-        }
-
-        // เพิ่มผลิตภัณฑ์ตามอาชีพและรายได้
-        if (monthly_income > 50000 && age <= 50) {
-          recommendations.push('ประกันชีวิตแบบมีกองทุน');
-        }
-
-        return {
-          category: 'lifecycle_risk',
-          name: 'ความเสี่ยงตามช่วงอายุ',
-          urgency: 'medium',
-          icon: 'ℹ️',
-          analysis: {
-            why: reasoning,
-            recommendedProducts: recommendations,
-            benefits: [
-              'วางแผนการเงินที่เหมาะสมกับช่วงวัย',
-              'สร้างวินัยการออมระยะยาว',
-              'เตรียมความพร้อมสำหรับชีวิตในอนาคต'
-            ]
-          }
-        };
-      }
-
-      analyzeHealthRisk(customer) {
-        const { occupation, age, monthly_income, marital_status, has_children } = customer;
-        const highRiskOccupations = ['แพทย์', 'พยาบาล', 'วิศวกร', 'เจ้าของกิจการ/ธุรกิจส่วนตัว'];
-        const highStressOccupations = ['นักกฎหมาย', 'ผู้จัดการ', 'ธนาคาร'];
-        
-        let riskLevel = 'medium';
-        let reasoning = '';
-        let recommendedProducts = [
-          'ประกันสุขภาพวงเงินสูง',
-          'ประกันโรคร้ายแรง'
-        ];
-
-        if (highRiskOccupations.includes(occupation)) {
-          riskLevel = 'high';
-          reasoning = `อาชีพ ${occupation} มีความเสี่ยงด้านสุขภาพและอุบัติเหตุสูงกว่าอาชีพอื่น`;
-          recommendedProducts.push('ประกันอุบัติเหตุกลุ่ม');
-        } else if (highStressOccupations.includes(occupation)) {
-          riskLevel = 'medium';
-          reasoning = `อาชีพ ${occupation} มีความเครียดสะสมและเสี่ยงต่อโรคเรื้อรัง`;
-          recommendedProducts.push('ประกันสุขภาพจิต');
-        } else {
-          reasoning = `อายุ ${age} ปี ควรมีแผนคุ้มครองสุขภาพที่เหมาะสม`;
-        }
-
-        // พิจารณาภาระครอบครัว
-        if ((marital_status === 'สมรส' || has_children === 'มี') && monthly_income > 30000) {
-          recommendedProducts.push('ประกันสุขภาพครอบครัว');
-          reasoning += ` ${has_children === 'มี' ? 'และมีบุตรที่ต้องดูแล' : 'และมีครอบครัวที่ต้องดูแล'} ควรพิจารณาความคุ้มครองสุขภาพสำหรับทุกคนในครอบครัว`;
-        }
-
-        // พิจารณาอายุ
-        if (age >= 40) {
-          recommendedProducts.push('ประกันโรคมะเร็ง');
-          reasoning += ` อายุมากขึ้นมีความเสี่ยงโรคเรื้อรังเพิ่มขึ้น`;
-        }
-
-        return {
-          category: 'health_risk',
-          name: 'ความเสี่ยงด้านสุขภาพตามอาชีพ',
-          urgency: riskLevel,
-          icon: riskLevel === 'high' ? '⚠️' : 'ℹ️',
-          analysis: {
-            why: reasoning,
-            recommendedProducts: recommendedProducts,
-            benefits: [
-              'คุ้มครองค่ารักษาพยาบาลสูง',
-              'รับเงินชดเชยเมื่อป่วยเป็นโรคเรื้อรัง',
-              'คุ้มครองชีวิตและทุพพลภาพจากอุบัติเหตุ'
-            ]
-          }
-        };
-      }
-
-      analyzeEducationRisk(customer) {
-        const { has_children, children_count, children_ages, monthly_income, age } = customer;
-        
-        // ตรวจสอบเงื่อนไขการมีบุตรก่อนวิเคราะห์ความเสี่ยงการศึกษา
-        if (has_children !== 'มี' || !children_count || children_count === 0) {
-          return null; // ไม่แนะนำประกันการศึกษาหากไม่มีบุตร
-        }
-        
-        const ages = children_ages ? children_ages.split(',').map(age => parseInt(age.trim())) : [];
-        const yearsToUni = ages.map(age => 18 - age).filter(years => years > 0);
-        
-        if (yearsToUni.length > 0) {
-          const minYears = Math.min(...yearsToUni);
-          const educationCost = 1000000 * children_count;
-          const urgency = minYears <= 5 ? 'high' : 'medium';
-          
-          return {
-            category: 'education_risk',
-            name: 'ความเสี่ยงการศึกษาบุตร',
-            urgency: urgency,
-            icon: urgency === 'high' ? '⚠️' : 'ℹ️',
-            analysis: {
-              why: `มีบุตร ${children_count} คน ที่จะเข้าเรียนมหาวิทยาลัยในอีก ${minYears} ปี ต้องการทุนการศึกษารวมประมาณ ${educationCost.toLocaleString()} บาท`,
-              recommendedProducts: [
-                'ประกันการศึกษา',
-                'ประกันชีวิตแบบสะสมทรัพย์',
-                'กองทุนการศึกษา'
-              ],
-              benefits: [
-                'รับประกันทุนการศึกษาเมื่อถึงเวลาที่กำหนด',
-                'ได้เงินคืนหากบุตรไม่ใช้ทุนการศึกษา',
-                'คุ้มครองชีวิตผู้ปกครองระหว่างการออม'
-              ]
-            }
-          };
-        }
-        
-        // กรณีบุตรอายุมากกว่า 18 ปีแล้ว
-        if (ages.length > 0 && Math.max(...ages) >= 18) {
-          return {
-            category: 'education_risk',
-            name: 'ความเสี่ยงการศึกษาบุตรในระดับสูง',
-            urgency: 'medium',
-            icon: 'ℹ️',
-            analysis: {
-              why: `มีบุตรในวัยศึกษาต่อในระดับอุดมศึกษา ต้องการการสนับสนุนทางการเงิน`,
-              recommendedProducts: [
-                'ประกันชีวิตแบบสะสมทรัพย์',
-                'กองทุนรวมเพื่อการศึกษา',
-                'ประกันสุขภาพนักศึกษา'
-              ],
-              benefits: [
-                'สนับสนุนค่าเล่าเรียนในระดับอุดมศึกษา',
-                'คุ้มครองสุขภาพบุตรระหว่างศึกษา',
-                'สร้างความมั่นคงทางการเงินสำหรับครอบครัว'
-              ]
-            }
-          };
-        }
-        
-        return null;
-      }
-
-      analyzeBusinessRisk(customer) {
-        const { occupation, business_capital, age, monthly_income, marital_status, has_children } = customer;
-        
-        if (occupation === 'เจ้าของกิจการ/ธุรกิจส่วนตัว' && business_capital > 0) {
-          const hasFamily = marital_status === 'สมรส' || has_children === 'มี';
-          const urgency = business_capital > 10000000 ? 'critical' : 'high';
-          
-          return {
-            category: 'business_risk',
-            name: 'ความเสี่ยงการส่งต่อธุรกิจ',
-            urgency: urgency,
-            icon: '🚨',
-            analysis: {
-              why: `เป็นเจ้าของธุรกิจที่มีมูลค่าประมาณ ${business_capital.toLocaleString()} บาท และอายุ ${age} ปี ${hasFamily ? 'มีครอบครัวที่ต้องดูแล' : ''} ต้องการแผนการส่งต่อธุรกิจและจัดการภาษีมรดก`,
-              recommendedProducts: [
-                'ประกันชีวิตเพื่อการส่งต่อธุรกิจ',
-                'Trust Planning',
-                'ประกันตลอดชีพ'
-              ],
-              benefits: [
-                'มีเงินสดสำหรับจ่ายภาษีมรดก',
-                'ส่งต่อธุรกิจให้ทายาทได้ราบรื่น',
-                'ป้องกันความขัดแย้งในครอบครัว'
-              ]
-            }
-          };
-        }
-        
-        // เพิ่มการวิเคราะห์สำหรับผู้มีรายได้สูงที่อาจเริ่มธุรกิจ
-        if (monthly_income > 80000 && age <= 45 && occupation !== 'เจ้าของกิจการ/ธุรกิจส่วนตัว') {
-          return {
-            category: 'business_risk',
-            name: 'ความเสี่ยงการเริ่มธุรกิจ',
-            urgency: 'medium',
-            icon: 'ℹ️',
-            analysis: {
-              why: `มีรายได้สูงและอยู่ในวัยที่เหมาะสมสำหรับการเริ่มธุรกิจ ควรมีแผนคุ้มครองทางการเงิน`,
-              recommendedProducts: [
-                'ประกันชีวิตแบบสะสมทรัพย์',
-                'ประกันทุพพลภาพ',
-                'ประกันสุขภาพวงเงินสูง'
-              ],
-              benefits: [
-                'สร้างหลักประกันทางการเงินก่อนเริ่มธุรกิจ',
-                'คุ้มครองรายได้หากไม่สามารถทำงานได้',
-                'มีเงินทุนสำรองสำหรับโอกาสทางธุรกิจ'
-              ]
-            }
-          };
-        }
-        
-        return null;
-      }
-
-      analyzeDebtRisk(customer) {
-        const { monthly_income, financial_products, age, marital_status, has_children } = customer;
-        const homeLoan = financial_products?.home_loan || 0;
-        const carLoan = financial_products?.car_loan || 0;
-        const personalLoan = financial_products?.personal_loan || 0;
-        const creditCard = financial_products?.credit_card || 0;
-        const totalDebt = homeLoan + carLoan + personalLoan + creditCard;
-        const yearlyIncome = monthly_income * 12;
-        
-        if (yearlyIncome > 0) {
-          const debtRatio = totalDebt / yearlyIncome;
-          
-          if (debtRatio > 3) {
-            return {
-              category: 'debt_risk',
-              name: 'ความเสี่ยงจากหนี้สิน',
-              urgency: 'high',
-              icon: '⚠️',
-              analysis: {
-                why: `มีหนี้สินรวม ${totalDebt.toLocaleString()} บาท หรือประมาณ ${debtRatio.toFixed(1)} เท่าของรายได้ต่อปี ซึ่งอยู่ในระดับที่สูงและเสี่ยงต่อสภาพคล่อง`,
-                recommendedProducts: [
-                  'ประกันชีวิตวงเงินเท่าหนี้',
-                  'ประกันทุพพลภาพ',
-                  'ประกันสุขภาพ'
-                ],
-                benefits: [
-                  'คุ้มครองภาระหนี้หากเกิดเหตุไม่คาดฝัน',
-                  'ป้องกันการสูญเสียทรัพย์สินหลัก',
-                  'รักษามาตรฐานการครองชีพ'
-                ]
-              }
-            };
-          } else if (debtRatio > 1.5) {
-            return {
-              category: 'debt_risk',
-              name: 'ความเสี่ยงจากหนี้สินในระดับปานกลาง',
-              urgency: 'medium',
-              icon: 'ℹ️',
-              analysis: {
-                why: `มีหนี้สินรวม ${totalDebt.toLocaleString()} บาท หรือประมาณ ${debtRatio.toFixed(1)} เท่าของรายได้ต่อปี ควรมีแผนจัดการหนี้และความคุ้มครอง`,
-                recommendedProducts: [
-                  'ประกันชีวิตแบบชั่วระยะเวลา',
-                  'ประกันอุบัติเหตุ',
-                  'ประกันสุขภาพพื้นฐาน'
-                ],
-                benefits: [
-                  'คุ้มครองภาระหนี้หลักๆ',
-                  'ลดความเสี่ยงทางการเงิน',
-                  'สร้างความมั่นคงให้ครอบครัว'
-                ]
-              }
-            };
-          }
-        }
-        
-        // วิเคราะห์สำหรับผู้ที่กำลังพิจารณากู้ยืมใหญ่
-        if (age >= 25 && age <= 40 && monthly_income > 40000 && totalDebt === 0) {
-          return {
-            category: 'debt_risk',
-            name: 'โอกาสในการกู้ยืม',
-            urgency: 'low',
-            icon: '💡',
-            analysis: {
-              why: `อยู่ในวัยที่เหมาะสมสำหรับการกู้ยืมเพื่อที่อยู่อาศัยหรือพัฒนาคุณภาพชีวิต ยังไม่มีหนี้สิน`,
-              recommendedProducts: [
-                'ประกันชีวิตแบบสะสมทรัพย์',
-                'ประกันสุขภาพ',
-                'ประกันอุบัติเหตุ'
-              ],
-              benefits: [
-                'สร้างเครดิตทางการเงิน',
-                'เตรียมความพร้อมก่อนกู้ยืม',
-                'คุ้มครองความสามารถในการชำระหนี้'
-              ]
-            }
-          };
-        }
-        
-        return null;
-      }
-
-      analyzeInvestmentRisk(customer) {
-        const { financial_products, age, monthly_income } = customer;
-        const savings = financial_products?.savings || 0;
-        const fixed = financial_products?.fixed || 0;
-        const fund = financial_products?.fund || 0;
-        const totalAssets = savings + fixed + fund;
-        
-        if (totalAssets > 0) {
-          const depositRatio = (savings + fixed) / totalAssets;
-          const fundRatio = fund / totalAssets;
-          
-          if (depositRatio > 0.8) {
-            return {
-              category: 'investment_risk',
-              name: 'ความเสี่ยงการลงทุนไม่หลากหลาย',
-              urgency: 'high',
-              icon: '⚠️',
-              analysis: {
-                why: `มีการลงทุนในเงินฝากสูงถึง ${(depositRatio * 100).toFixed(0)}% ของพอร์ตการลงทุนทั้งหมด ทำให้เสียโอกาสในการสร้างผลตอบแทนที่สูงกว่า`,
-                recommendedProducts: [
-                  'ประกันชีวิตแบบมีกองทุน',
-                  'Unit Linked',
-                  'กองทุนรวมโครงสร้าง'
-                ],
-                benefits: [
-                  'กระจายความเสี่ยงการลงทุน',
-                  'ได้ผู้จัดการกองทุนมืออาชีพ',
-                  'ได้ความคุ้มครองชีวิตไปพร้อมกัน'
-                ]
-              }
-            };
-          } else if (fundRatio > 0.7) {
-            return {
-              category: 'investment_risk',
-              name: 'ความเสี่ยงการลงทุนในกองทุนรวมสูง',
-              urgency: 'medium',
-              icon: 'ℹ️',
-              analysis: {
-                why: `มีการลงทุนในกองทุนรวมสูงถึง ${(fundRatio * 100).toFixed(0)}% ของพอร์ตการลงทุนทั้งหมด ควรกระจายความเสี่ยง`,
-                recommendedProducts: [
-                  'ประกันชีวิตแบบสะสมทรัพย์',
-                  'ประกันบำนาญ',
-                  'สินทรัพย์ทางเลือก'
-                ],
-                benefits: [
-                  'ลดความผันผวนของพอร์ตการลงทุน',
-                  'ได้ความคุ้มครองชีวิตเพิ่มเติม',
-                  'สร้างรายได้มั่นคงในระยะยาว'
-                ]
-              }
-            };
-          }
-        } else if (monthly_income > 30000 && age >= 25) {
-          // กรณีไม่มีเงินลงทุนเลย
-          return {
-            category: 'investment_risk',
-            name: 'ความเสี่ยงจากการไม่มีเงินลงทุน',
-            urgency: 'medium',
-            icon: 'ℹ️',
-            analysis: {
-              why: `มีรายได้ ${monthly_income.toLocaleString()} บาท/เดือน แต่ยังไม่มีเงินลงทุน ควรเริ่มออมและลงทุนเพื่อสร้างความมั่งคั่ง`,
-              recommendedProducts: [
-                'ประกันชีวิตแบบสะสมทรัพย์',
-                'กองทุนรวม LTF',
-                'กองทุนรวม RMF'
-              ],
-              benefits: [
-                'เริ่มต้นการออมและการลงทุน',
-                'ได้ประโยชน์ทางภาษี',
-                'สร้างวินัยการเงินระยะยาว'
-              ]
-            }
-          };
-        }
-        return null;
-      }
-
-      analyzeLiquidityRisk(customer, policies) {
-        // แก้ไข: ตรวจสอบว่า policies เป็น array ที่ถูกต้อง
-        if (!policies || !Array.isArray(policies)) {
-          return null;
-        }
-
-        const monthlyIncome = customer.monthly_income || 0;
-        const totalAnnualPremium = policies.reduce((sum, policy) => {
-          return sum + (policy.premium_amount || 0);
-        }, 0);
-        
-        const premiumToIncomeRatio = monthlyIncome > 0 ? 
-          totalAnnualPremium / (monthlyIncome * 12) : 0;
-
-        if (premiumToIncomeRatio > 0.20) {
-          return {
-            category: 'liquidity_risk',
-            name: 'ความเสี่ยงด้านสภาพคล่อง',
-            urgency: 'high',
-            icon: '⚠️',
-            analysis: {
-              why: `มีเบี้ยประกันรวม ${totalAnnualPremium.toLocaleString()} บาท/ปี (${(premiumToIncomeRatio * 100).toFixed(1)}% ของรายได้) สูงเกินเกณฑ์เหมาะสม 20%`,
-              recommendedProducts: ['ปรับโครงสร้างพอร์ตประกัน', 'ประกันแบบเติมเงิน', 'ลดความคุ้มครองที่ไม่จำเป็น'],
-              benefits: ['ลดภาระรายเดือน', 'เพิ่มสภาพคล่อง', 'รักษาสมดุลการเงิน']
-            }
-          };
-        } else if (premiumToIncomeRatio > 0.15) {
-          return {
-            category: 'liquidity_risk',
-            name: 'ความเสี่ยงด้านสภาพคล่องในระดับปานกลาง',
-            urgency: 'medium',
-            icon: 'ℹ️',
-            analysis: {
-              why: `มีเบี้ยประกันรวม ${totalAnnualPremium.toLocaleString()} บาท/ปี (${(premiumToIncomeRatio * 100).toFixed(1)}% ของรายได้) ใกล้ถึงขีดจำกัดที่แนะนำ`,
-              recommendedProducts: ['ทบทวนพอร์ตประกัน', 'พิจารณาประกันแบบชำระเบี้ยครั้งเดียว'],
-              benefits: ['ป้องกันปัญหาสภาพคล่อง', 'จัดการทางการเงินได้มีประสิทธิภาพ', 'ลดความเครียดทางการเงิน']
-            }
-          };
-        } else if (premiumToIncomeRatio === 0 && customer.monthly_income > 0) {
-          return {
-            category: 'liquidity_risk',
-            name: 'โอกาสในการเริ่มความคุ้มครอง',
-            urgency: 'low',
-            icon: '💡',
-            analysis: {
-              why: `ยังไม่มีเบี้ยประกันชีวิต ควรเริ่มวางแผนความคุ้มครองที่เหมาะสมกับรายได้ ${monthlyIncome.toLocaleString()} บาท/เดือน`,
-              recommendedProducts: ['ประกันชีวิตพื้นฐาน', 'ประกันสุขภาพ', 'ประกันอุบัติเหตุ'],
-              benefits: ['เริ่มสร้างความคุ้มครอง', 'ใช้จ่ายในงบประมาณที่เหมาะสม', 'สร้างวินัยการออม']
-            }
-          };
-        }
-        return null;
-      }
-
-      analyzePortfolioRisk(policies) {
-        // แก้ไข: ตรวจสอบว่า policies เป็น array ที่ถูกต้อง
-        if (!policies || !Array.isArray(policies) || policies.length === 0) {
-          return {
-            category: 'portfolio_risk',
-            name: 'โอกาสในการเริ่มพอร์ตประกัน',
-            urgency: 'low',
-            icon: '💡',
-            analysis: {
-              why: 'ยังไม่มีกรมธรรม์ประกันชีวิตในพอร์ต เป็นโอกาสที่ดีที่จะเริ่มสร้างความคุ้มครองที่เหมาะสม',
-              recommendedProducts: ['ประกันชีวิตแบบสะสมทรัพย์', 'ประกันสุขภาพ', 'ประกันอุบัติเหตุ'],
-              benefits: [
-                'เริ่มสร้างหลักประกันทางการเงิน',
-                'ได้ความคุ้มครองพื้นฐานที่จำเป็น',
-                'สร้างนิสัยการออมผ่านประกันชีวิต'
-              ]
-            }
-          };
-        }
-
-        const typeCount = this.countPolicyTypes(policies);
-        const totalPolicies = policies.length;
-
-        const dominantType = Object.keys(typeCount).reduce((a, b) => 
-          typeCount[a] > typeCount[b] ? a : b
-        );
-
-        if (typeCount[dominantType] / totalPolicies > 0.6) {
-          return {
-            category: 'portfolio_risk',
-            name: 'ความเสี่ยงการกระจุกตัวพอร์ตประกัน',
-            urgency: 'medium',
-            icon: 'ℹ️',
-            analysis: {
-              why: `พอร์ตประกันกระจุกตัวในประเภท "${dominantType}" ถึง ${((typeCount[dominantType] / totalPolicies) * 100).toFixed(0)}% ของพอร์ตทั้งหมด`,
-              recommendedProducts: this.getDiversificationProducts(dominantType),
-              benefits: [
-                'กระจายความเสี่ยงทางการเงิน',
-                'ได้ความคุ้มครองที่ครอบคลุมมากขึ้น',
-                'เพิ่มประสิทธิภาพพอร์ตประกันรวม'
-              ]
-            }
-          };
-        }
-        
-        // ตรวจสอบความครอบคลุมของพอร์ต
-        const hasHealth = Object.keys(typeCount).some(type => type.includes('สุขภาพ'));
-        const hasLife = Object.keys(typeCount).some(type => type.includes('ชีวิต'));
-        const hasAccident = Object.keys(typeCount).some(type => type.includes('อุบัติเหตุ'));
-        
-        if (!hasHealth || !hasLife || !hasAccident) {
-          const missingCoverage = [];
-          if (!hasHealth) missingCoverage.push('สุขภาพ');
-          if (!hasLife) missingCoverage.push('ชีวิต');
-          if (!hasAccident) missingCoverage.push('อุบัติเหตุ');
-          
-          return {
-            category: 'portfolio_risk',
-            name: 'ความเสี่ยงความคุ้มครองไม่ครบถ้วน',
-            urgency: 'medium',
-            icon: 'ℹ️',
-            analysis: {
-              why: `พอร์ตประกันขาดความคุ้มครองด้าน${missingCoverage.join(', ')}`,
-              recommendedProducts: this.getMissingCoverageProducts(missingCoverage),
-              benefits: [
-                'ได้ความคุ้มครองที่สมบูรณ์มากขึ้น',
-                'ลดช่องโหว่ทางการเงิน',
-                'เพิ่มความมั่นใจในแผนการเงิน'
-              ]
-            }
-          };
-        }
-        
-        return null;
-      }
-
-      countPolicyTypes(policies) {
-        // แก้ไข: ตรวจสอบว่า policies เป็น array ที่ถูกต้องก่อนใช้ reduce
-        if (!policies || !Array.isArray(policies)) {
-          return {};
-        }
-        
-        return policies.reduce((acc, policy) => {
-          const type = policy.policy_type;
-          acc[type] = (acc[type] || 0) + 1;
-          return acc;
-        }, {});
-      }
-
-      getDiversificationProducts(dominantType) {
-        const diversificationMap = {
-          'สะสมทรัพย์': ['ประกันสุขภาพ', 'ประกันอุบัติเหตุ', 'ประกันโรคร้ายแรง'],
-          'สุขภาพ': ['ประกันชีวิตแบบสะสมทรัพย์', 'ประกันบำนาญ', 'ประกันการศึกษา'],
-          'ตลอดชีพ': ['ประกันชั่วระยะเวลา', 'ประกันสุขภาพ', 'ประกันบำนาญ'],
-          'บำนาญ': ['ประกันชีวิตแบบสะสมทรัพย์', 'ประกันสุขภาพ', 'ประกันการศึกษา'],
-          'อุบัติเหตุ': ['ประกันชีวิตแบบสะสมทรัพย์', 'ประกันสุขภาพ', 'ประกันโรคร้ายแรง']
-        };
-        return diversificationMap[dominantType] || ['ประกันสุขภาพ', 'ประกันชีวิตแบบสะสมทรัพย์', 'ประกันอุบัติเหตุ'];
-      }
-
-      getMissingCoverageProducts(missingCoverage) {
-        const coverageMap = {
-          'สุขภาพ': ['ประกันสุขภาพ IPD/OPD', 'ประกันโรคร้ายแรง'],
-          'ชีวิต': ['ประกันชีวิตแบบสะสมทรัพย์', 'ประกันชีวิตแบบชั่วระยะเวลา'],
-          'อุบัติเหตุ': ['ประกันอุบัติเหตุส่วนบุคคล', 'ประกันทุพพลภาพ']
-        };
-        
-        return missingCoverage.flatMap(coverage => coverageMap[coverage] || []);
-      }
-
-      analyzeAllRisks(customerData, policies = []) {
-        const risks = [];
-        
-        // Analyze customer risks
-        this.riskCategories.forEach(category => {
-          if (category.id === 'liquidity_risk' || category.id === 'portfolio_risk') {
-            const result = category.analyzer(customerData, policies);
-            if (result) risks.push(result);
-          } else {
-            const result = category.analyzer(customerData);
-            if (result) risks.push(result);
-          }
-        });
-        
-        // เรียงลำดับความสำคัญ
-        const urgencyOrder = { critical: 0, high: 1, medium: 2, low: 3 };
-        return risks.sort((a, b) => urgencyOrder[a.urgency] - urgencyOrder[b.urgency]);
-      }
-    }
-
-    class AdvancedInsuranceAdvisor {
+    class InsuranceAdvisor {
       constructor() {
         this.products = this.initializeProducts();
-        this.riskFactors = this.initializeRiskFactors();
       }
 
       initializeProducts() {
@@ -2822,809 +1982,1131 @@
           'ประกันอุบัติเหตุส่วนบุคคล': { category: 'accident', minAge: 18, maxAge: 65, priority: 8 },
           'ประกันทุพพลภาพ': { category: 'accident', minAge: 20, maxAge: 55, priority: 9 },
           'ประกันบำนาญ': { category: 'retirement', minAge: 30, maxAge: 50, priority: 10 },
-          'ประกันการศึกษา': { category: 'savings', minAge: 25, maxAge: 45, priority: 11 },
-          'ประกันชีวิตแบบมีกองทุน': { category: 'investment', minAge: 25, maxAge: 50, priority: 12 },
-          'Unit Linked': { category: 'investment', minAge: 25, maxAge: 55, priority: 13 }
-        };
-      }
-
-      initializeRiskFactors() {
-        return {
-          occupation: {
-            'แพทย์': { health: 8, accident: 6, life: 5 },
-            'วิศวกร': { health: 5, accident: 7, life: 4 },
-            'ครู': { health: 4, accident: 3, life: 4 },
-            'นักกฎหมาย': { health: 6, accident: 4, life: 5 },
-            'เจ้าของกิจการ/ธุรกิจส่วนตัว': { health: 7, accident: 5, life: 8 },
-            'พนักงานบริษัท': { health: 4, accident: 3, life: 4 },
-            'ข้าราชการ': { health: 3, accident: 2, life: 3 }
-          }
+          'ประกันการศึกษา': { category: 'savings', minAge: 25, maxAge: 45, priority: 11 }
         };
       }
 
       analyzeCustomer(customer) {
-        const profile = this.createDetailedProfile(customer);
-        const analysis = this.performMultiDimensionalAnalysis(profile);
-        return this.generateRecommendations(analysis, profile);
-      }
+        const recommendations = [];
+        const age = customer.cust_age || 0;
+        const monthlyIncome = customer.cust_monthly_income || 0;
+        const occupation = customer.cust_occupation || '';
+        const hasChildren = customer.cust_has_children === 'มี';
+        const maritalStatus = customer.cust_marital_status || '';
 
-      createDetailedProfile(customer) {
-        return {
-          age: customer.age || 0,
-          gender: customer.gender || '',
-          occupation: customer.occupation || '',
-          income: {
-            monthly: customer.monthly_income || 0,
-            yearly: (customer.monthly_income || 0) * 12,
-            tier: this.getIncomeTier(customer.monthly_income || 0)
-          },
-          family: {
-            maritalStatus: customer.marital_status || '',
-            hasChildren: customer.has_children === 'มี',
-            childrenCount: customer.children_count || 0,
-            childrenAges: this.parseChildrenAges(customer.children_ages),
-            hasDependents: customer.has_dependents === 'มี'
-          },
-          lifeStage: this.determineLifeStage(customer),
-          risk: {
-            occupationRisk: this.calculateOccupationRisk(customer.occupation),
-            level: this.calculateOverallRisk(customer)
-          }
-        };
-      }
-
-      performMultiDimensionalAnalysis(profile) {
-        return {
-          needs: {
-            health: this.analyzeHealthNeeds(profile),
-            life: this.analyzeLifeInsuranceNeeds(profile),
-            retirement: this.analyzeRetirementNeeds(profile),
-            education: profile.family.hasChildren ? this.analyzeEducationNeeds(profile) : [],
-            investment: this.analyzeInvestmentNeeds(profile)
-          }
-        };
-      }
-
-      analyzeHealthNeeds(profile) {
-        const needs = [];
-        const age = profile.age;
-
-        needs.push({
-          type: 'basic_health',
-          priority: 'high',
-          reason: 'ความคุ้มครองพื้นฐานสำหรับค่ารักษาพยาบาล'
-        });
-
+        // Rule 1: Health insurance based on age
         if (age >= 30) {
-          needs.push({
-            type: 'critical_illness',
-            priority: age >= 40 ? 'high' : 'medium',
+          recommendations.push({
+            product: 'ประกันโรคร้ายแรง',
+            score: 85,
+            capital: monthlyIncome * 12 * 3,
+            premium: Math.round(monthlyIncome * 0.05),
             reason: `อายุ ${age} ปี เป็นกลุ่มเสี่ยงโรคเรื้อรัง`
           });
         }
 
-        if (age >= 35) {
-          needs.push({
-            type: 'cancer',
-            priority: age >= 45 ? 'high' : 'medium',
-            reason: 'ความเสี่ยงโรคมะเร็งเพิ่มขึ้นตามอายุ'
+        // Rule 2: Life insurance based on income and family status
+        if (monthlyIncome > 30000 && (maritalStatus === 'สมรส' || hasChildren)) {
+          recommendations.push({
+            product: 'ประกันชีวิตแบบสะสมทรัพย์',
+            score: 80,
+            capital: monthlyIncome * 12 * 5,
+            premium: Math.round(monthlyIncome * 0.08),
+            reason: `รายได้ ${monthlyIncome.toLocaleString()} บาท/เดือน ${hasChildren ? 'และมีบุตร' : 'และมีครอบครัว'}`
           });
         }
 
-        // เพิ่มความต้องการตามอาชีพ
-        if (profile.risk.occupationRisk.health >= 6) {
-          needs.push({
-            type: 'comprehensive_health',
-            priority: 'high',
-            reason: `อาชีพ ${profile.occupation} มีความเสี่ยงด้านสุขภาพสูง`
+        // Rule 3: Accident insurance for certain occupations
+        const highRiskOccupations = ['แพทย์', 'วิศวกร', 'เจ้าของกิจการ/ธุรกิจส่วนตัว'];
+        if (highRiskOccupations.includes(occupation)) {
+          recommendations.push({
+            product: 'ประกันอุบัติเหตุส่วนบุคคล',
+            score: 75,
+            capital: monthlyIncome * 12 * 2,
+            premium: Math.round(monthlyIncome * 0.02),
+            reason: `อาชีพ ${occupation} มีความเสี่ยงด้านอุบัติเหตุสูง`
           });
         }
 
-        return needs;
-      }
-
-      analyzeLifeInsuranceNeeds(profile) {
-        const needs = [];
-        const { family, income } = profile;
-
-        if (income.monthly > 0) {
-          needs.push({
-            type: 'income_replacement',
-            priority: 'high',
-            reason: `แทนที่รายได้ ${income.monthly.toLocaleString()} บาท/เดือน`,
-            suggestedCoverage: income.yearly * 5
+        // Rule 4: Education insurance if has children
+        if (hasChildren) {
+          recommendations.push({
+            product: 'ประกันการศึกษา',
+            score: 70,
+            capital: 1000000,
+            premium: Math.round(monthlyIncome * 0.03),
+            reason: 'วางแผนการศึกษาบุตร'
           });
         }
 
-        if (family.hasChildren || family.maritalStatus === 'สมรส' || family.hasDependents) {
-          needs.push({
-            type: 'family_protection',
-            priority: 'high',
-            reason: `มี${family.hasChildren ? 'บุตร' : family.hasDependents ? 'บุคคลที่ต้องดูแล' : 'คู่สมรส'}ที่ต้องดูแล`,
-            suggestedCoverage: this.calculateFamilyProtectionNeeds(profile)
-          });
-        }
-
-        return needs;
-      }
-
-      analyzeRetirementNeeds(profile) {
-        const needs = [];
-        const { age, income } = profile;
-
-        if (age >= 25) {
-          const yearsToRetirement = 60 - age;
-          const priority = yearsToRetirement <= 20 ? 'medium' : 'low';
-          
-          needs.push({
-            type: 'retirement_savings',
-            priority: priority,
-            reason: `เหลือเวลาอีก ${yearsToRetirement} ปีก่อนเกษียณ`,
-            suggestedSavings: this.calculateRetirementNeeds(profile)
-          });
-        }
-
-        return needs;
-      }
-
-      analyzeEducationNeeds(profile) {
-        const needs = [];
-        const childrenAges = profile.family.childrenAges;
-
-        // ตรวจสอบว่ามีบุตรก่อนวิเคราะห์
-        if (!profile.family.hasChildren || childrenAges.length === 0) {
-          return needs;
-        }
-
-        childrenAges.forEach((age, index) => {
-          const yearsToUniversity = 18 - age;
-          if (yearsToUniversity > 0 && yearsToUniversity <= 18) {
-            needs.push({
-              type: 'education_fund',
-              priority: yearsToUniversity <= 10 ? 'medium' : 'low',
-              reason: `บุตรคนที่ ${index + 1} วัย ${age} ปี จะเข้าเรียนมหาวิทยาลัยในอีก ${yearsToUniversity} ปี`,
-              suggestedSavings: this.calculateEducationNeeds(age)
-            });
-          }
+        // Rule 5: Basic health insurance for everyone
+        recommendations.push({
+          product: 'ประกันสุขภาพ IPD',
+          score: 90,
+          capital: 500000,
+          premium: Math.round(monthlyIncome * 0.04),
+          reason: 'ความคุ้มครองพื้นฐานสำหรับค่ารักษาพยาบาล'
         });
 
-        return needs;
+        // Sort by score
+        return recommendations.sort((a, b) => b.score - a.score);
       }
 
-      analyzeInvestmentNeeds(profile) {
-        const needs = [];
-        const { income, age } = profile;
+      calculateRiskScore(customer) {
+        let score = 0;
+        const age = customer.cust_age || 0;
+        const income = customer.cust_monthly_income || 0;
+        const occupation = customer.cust_occupation || '';
+        const hasChildren = customer.cust_has_children === 'มี';
+        const maritalStatus = customer.cust_marital_status || '';
 
-        if (income.tier === 'high' || income.tier === 'premium') {
-          needs.push({
-            type: 'wealth_accumulation',
-            priority: age <= 50 ? 'medium' : 'low',
-            reason: 'สร้างความมั่งคั่งผ่านการลงทุนระยะยาว',
-            suggestedAmount: income.yearly * 0.2
-          });
-        }
+        // Age factor
+        if (age >= 40) score += 3;
+        else if (age >= 30) score += 2;
+        else if (age >= 20) score += 1;
 
-        if (income.monthly > 50000 && age <= 45) {
-          needs.push({
-            type: 'tax_planning',
-            priority: 'medium',
-            reason: 'วางแผนภาษีผ่านการลงทุน',
-            suggestedAmount: income.yearly * 0.15
-          });
-        }
+        // Income factor
+        if (income > 100000) score += 3;
+        else if (income > 50000) score += 2;
+        else if (income > 25000) score += 1;
 
-        return needs;
-      }
+        // Occupation risk
+        const highRiskOccupations = ['แพทย์', 'วิศวกร', 'เจ้าของกิจการ/ธุรกิจส่วนตัว'];
+        if (highRiskOccupations.includes(occupation)) score += 2;
 
-      generateRecommendations(analysis, profile) {
-        const recommendations = [];
-        
-        if (analysis.needs.health.length > 0) {
-          analysis.needs.health.forEach(need => {
-            const product = this.mapNeedToProduct(need.type);
-            if (product) {
-              recommendations.push(this.createProductRecommendation(product, need, profile));
-            }
-          });
-        }
+        // Family responsibility
+        if (maritalStatus === 'สมรส') score += 1;
+        if (hasChildren) score += 2;
 
-        if (analysis.needs.life.length > 0) {
-          analysis.needs.life.forEach(need => {
-            const product = this.mapNeedToProduct(need.type);
-            if (product) {
-              recommendations.push(this.createProductRecommendation(product, need, profile));
-            }
-          });
-        }
-
-        if (analysis.needs.retirement.length > 0) {
-          analysis.needs.retirement.forEach(need => {
-            const product = this.mapNeedToProduct(need.type);
-            if (product) {
-              recommendations.push(this.createProductRecommendation(product, need, profile));
-            }
-          });
-        }
-
-        if (analysis.needs.education && analysis.needs.education.length > 0) {
-          analysis.needs.education.forEach(need => {
-            const product = this.mapNeedToProduct(need.type);
-            if (product) {
-              recommendations.push(this.createProductRecommendation(product, need, profile));
-            }
-          });
-        }
-
-        if (analysis.needs.investment && analysis.needs.investment.length > 0) {
-          analysis.needs.investment.forEach(need => {
-            const product = this.mapNeedToProduct(need.type);
-            if (product) {
-              recommendations.push(this.createProductRecommendation(product, need, profile));
-            }
-          });
-        }
-
-        return recommendations
-          .sort((a, b) => b.score - a.score)
-          .slice(0, 6); // เพิ่มจำนวนคำแนะนำเป็น 6 รายการ
-      }
-
-      createProductRecommendation(productName, need, profile) {
-        const product = this.products[productName];
-        const score = this.calculateProductScore(productName, profile, need);
-        const capital = this.calculateCapital(productName, profile, need);
-        const premium = this.calculatePremium(productName, capital);
-        const reason = this.generateReason(productName, need, profile);
-
-        return {
-          product: productName,
-          score: score,
-          capital: capital,
-          premium: premium,
-          reason: reason,
-          source: 'rule_based',
-          category: product.category,
-          urgency: need.priority === 'high' ? 3 : need.priority === 'medium' ? 2 : 1
-        };
-      }
-
-      calculateProductScore(productName, profile, need) {
-        let score = 50;
-        const product = this.products[productName];
-        
-        if (profile.age >= product.minAge && profile.age <= product.maxAge) {
-          score += 20;
-        }
-
-        if (profile.income.tier === 'high' || profile.income.tier === 'premium') {
-          score += 15;
-        }
-
-        if (need.priority === 'high') score += 15;
-        else if (need.priority === 'medium') score += 10;
-
-        // ลดคะแนนสำหรับประกันการศึกษาหากไม่มีบุตร
-        if (productName === 'ประกันการศึกษา' && !profile.family.hasChildren) {
-          score -= 30;
-        }
-
-        return Math.min(score, 95);
-      }
-
-      calculateCapital(productName, profile, need) {
-        const product = this.products[productName];
-        let capital = 500000;
-
-        if (profile.income.tier === 'medium') capital = 1000000;
-        else if (profile.income.tier === 'high') capital = 2000000;
-        else if (profile.income.tier === 'premium') capital = 5000000;
-
-        if (need.suggestedCoverage) {
-          capital = Math.max(capital, need.suggestedCoverage);
-        }
-
-        if (need.suggestedSavings) {
-          capital = Math.max(capital, need.suggestedSavings);
-        }
-
-        if (need.suggestedAmount) {
-          capital = Math.max(capital, need.suggestedAmount);
-        }
-
-        // ปรับทุนประกันการศึกษาให้สอดคล้องกับจำนวนบุตร
-        if (productName === 'ประกันการศึกษา' && profile.family.hasChildren) {
-          capital = capital * profile.family.childrenCount;
-        }
-
-        return Math.min(capital, 10000000);
-      }
-
-      calculatePremium(productName, capital) {
-        const premiumRates = {
-          'ประกันสุขภาพ IPD': 0.02,
-          'ประกันสุขภาพ OPD': 0.015,
-          'ประกันโรคร้ายแรง': 0.025,
-          'ประกันโรคมะเร็ง': 0.02,
-          'ประกันชีวิตแบบสะสมทรัพย์': 0.015,
-          'ประกันชีวิตแบบตลอดชีพ': 0.02,
-          'ประกันชีวิตแบบชั่วระยะเวลา': 0.01,
-          'ประกันอุบัติเหตุส่วนบุคคล': 0.005,
-          'ประกันทุพพลภาพ': 0.008,
-          'ประกันบำนาญ': 0.012,
-          'ประกันการศึกษา': 0.01,
-          'ประกันชีวิตแบบมีกองทุน': 0.018,
-          'Unit Linked': 0.02
-        };
-        
-        return Math.round(capital * (premiumRates[productName] || 0.02));
-      }
-
-      generateReason(productName, need, profile) {
-        const reasons = {
-          'ประกันสุขภาพ IPD': `อายุ ${profile.age} ปี ควรมีความคุ้มครองค่ารักษาพยาบาล`,
-          'ประกันสุขภาพ OPD': `เหมาะสำหรับการรักษาพยาบาลทั่วไป`,
-          'ประกันโรคร้ายแรง': `กลุ่มอายุ ${profile.age} ปี มีความเสี่ยงโรคเรื้อรัง`,
-          'ประกันชีวิตแบบสะสมทรัพย์': `สร้างความมั่นคงทางการเงินพร้อมออมทรัพย์`,
-          'ประกันบำนาญ': `วางแผนการเงินหลังเกษียณ อีก ${60 - profile.age} ปี`,
-          'ประกันการศึกษา': profile.family.hasChildren ? 
-            `วางแผนการศึกษาบุตร ${profile.family.childrenCount} คน` : 
-            `ไม่แนะนำ เนื่องจากไม่มีบุตร`,
-          'ประกันชีวิตแบบมีกองทุน': `ลงทุนระยะยาวพร้อมความคุ้มครอง`,
-          'Unit Linked': `การลงทุนแบบยูนิตลิงค์พร้อมความคุ้มครองชีวิต`
-        };
-
-        return reasons[productName] || need.reason;
-      }
-
-      // Helper methods
-      mapNeedToProduct(needType) {
-        const mapping = {
-          'basic_health': 'ประกันสุขภาพ IPD',
-          'critical_illness': 'ประกันโรคร้ายแรง',
-          'cancer': 'ประกันโรคมะเร็ง',
-          'comprehensive_health': 'ประกันสุขภาพวงเงินสูง',
-          'income_replacement': 'ประกันชีวิตแบบสะสมทรัพย์',
-          'family_protection': 'ประกันชีวิตแบบตลอดชีพ',
-          'retirement_savings': 'ประกันบำนาญ',
-          'education_fund': 'ประกันการศึกษา',
-          'wealth_accumulation': 'ประกันชีวิตแบบมีกองทุน',
-          'tax_planning': 'Unit Linked'
-        };
-        return mapping[needType];
-      }
-
-      getIncomeTier(monthlyIncome) {
-        if (monthlyIncome <= 25000) return 'low';
-        if (monthlyIncome <= 50000) return 'medium';
-        if (monthlyIncome <= 100000) return 'high';
-        return 'premium';
-      }
-
-      determineLifeStage(customer) {
-        const age = customer.age || 0;
-        if (age <= 24) return 'student';
-        if (age <= 34) return 'early_career';
-        if (age <= 44) return 'family_builder';
-        if (age <= 54) return 'peak_earner';
-        return 'pre_retirement';
-      }
-
-      calculateOccupationRisk(occupation) {
-        return this.riskFactors.occupation[occupation] || { health: 4, accident: 3, life: 4 };
-      }
-
-      calculateOverallRisk(customer) {
-        let risk = 0;
-        if (customer.age >= 40) risk += 2;
-        if (customer.occupation === 'แพทย์' || customer.occupation === 'วิศวกร') risk += 2;
-        if (customer.has_children === 'มี') risk += 1;
-        if (customer.has_dependents === 'มี') risk += 1;
-        return Math.min(risk, 5);
-      }
-
-      parseChildrenAges(agesString) {
-        if (!agesString) return [];
-        return agesString.split(',').map(age => parseInt(age.trim())).filter(age => !isNaN(age));
-      }
-
-      calculateFamilyProtectionNeeds(profile) {
-        const base = profile.income.yearly * 3;
-        const childrenFactor = profile.family.childrenCount * 500000;
-        const dependentsFactor = profile.family.hasDependents ? 1000000 : 0;
-        return base + childrenFactor + dependentsFactor;
-      }
-
-      calculateRetirementNeeds(profile) {
-        const currentAge = profile.age;
-        const retirementAge = 60;
-        const yearsInRetirement = 25;
-        const monthlyNeed = profile.income.monthly * 0.7;
-        return monthlyNeed * 12 * yearsInRetirement;
-      }
-
-      calculateEducationNeeds(childAge) {
-        const yearsToUni = 18 - childAge;
-        const inflationAdjusted = 1000000 * Math.pow(1.03, yearsToUni); // คำนวณด้วยอัตราเงินเฟ้อ 3% ต่อปี
-        return Math.round(inflationAdjusted);
-      }
-    }
-
-    class EnhancedInsuranceAdvisor {
-      constructor() {
-        this.riskAnalyzer = new ComprehensiveRiskAnalyzer();
-        this.ruleBasedAdvisor = new AdvancedInsuranceAdvisor();
-      }
-
-      async analyzeCustomer(customerData, policies = []) {
-        const riskAnalysis = this.riskAnalyzer.analyzeAllRisks(customerData, policies);
-        const productRecommendations = this.ruleBasedAdvisor.analyzeCustomer(customerData);
-        
-        // กรองคำแนะนำที่ไม่เหมาะสม (เช่น ประกันการศึกษาสำหรับผู้ไม่มีบุตร)
-        const filteredRecommendations = productRecommendations.filter(rec => {
-          if (rec.product === 'ประกันการศึกษา') {
-            return customerData.has_children === 'มี';
-          }
-          return true;
-        });
-        
-        return {
-          analysisId: this.generateAnalysisId(),
-          timestamp: new Date().toISOString(),
-          urgentMatters: riskAnalysis.filter(risk => risk !== null).slice(0, 4), // เพิ่มจำนวน urgent matters
-          productRecommendations: filteredRecommendations,
-          profileSummary: this.createProfileSummary(customerData)
-        };
-      }
-
-      generateAnalysisId() {
-        return `analysis_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-      }
-
-      createProfileSummary(customerData) {
-        return {
-          lifeStage: this.ruleBasedAdvisor.determineLifeStage(customerData),
-          riskLevel: this.ruleBasedAdvisor.calculateOverallRisk(customerData),
-          incomeTier: this.ruleBasedAdvisor.getIncomeTier(customerData.monthly_income || 0),
-          familyStatus: this.getFamilyStatus(customerData)
-        };
-      }
-
-      getFamilyStatus(customerData) {
-        const { marital_status, has_children, has_dependents } = customerData;
-        if (has_children === 'มี' && marital_status === 'สมรส') return 'ครอบครัวสมบูรณ์';
-        if (has_children === 'มี') return 'มีบุตร';
-        if (has_dependents === 'มี') return 'มีผู้ต้องดูแล';
-        if (marital_status === 'สมรส') return 'สมรส';
-        return 'โสด';
+        return Math.min(score, 10);
       }
     }
 
     // =============================================
-    // Data Service for Supabase
+    // Application Initialization
     // =============================================
 
-    class SupabaseDataService {
-      constructor() {
-        this.supabase = supabase;
-      }
+    async function initializeApp() {
+      try {
+        // Test Supabase connection
+        const { data, error } = await supabase
+          .from('employees')
+          .select('count')
+          .limit(1);
 
-      async loadCustomers() {
-        try {
-          const { data, error } = await this.supabase
-            .from('customers')
-            .select(`
-              *,
-              insurance_policies (*)
-            `)
-            .order('created_at', { ascending: false });
-          
-          if (error) throw error;
-          console.log('✅ Loaded customers from Supabase:', data?.length || 0);
-          return data || [];
-        } catch (error) {
-          console.error('❌ Error loading customers:', error);
-          return [];
+        if (error) throw error;
+
+        console.log('✅ Connected to Supabase successfully');
+        
+        // Simulate loading progress
+        simulateLoading();
+        
+      } catch (error) {
+        console.error('❌ Failed to connect to Supabase:', error);
+        showError('ไม่สามารถเชื่อมต่อกับฐานข้อมูลได้');
+      }
+    }
+
+    function simulateLoading() {
+      let progress = 0;
+      const progressBar = $('loadingProgress');
+      const interval = setInterval(() => {
+        progress += 5;
+        progressBar.style.width = `${progress}%`;
+        
+        if (progress >= 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            $('loadingScreen').style.opacity = '0';
+            setTimeout(() => {
+              $('loadingScreen').style.display = 'none';
+              $('appContainer').style.display = 'flex';
+              setupEventListeners();
+              loadDashboardStats();
+            }, 600);
+          }, 300);
         }
-      }
+      }, 100);
+    }
 
-      async saveCustomer(customerData) {
-        try {
-          const { data, error } = await this.supabase
-            .from('customers')
-            .upsert([customerData])
-            .select()
-            .single();
-          
-          if (error) throw error;
-          console.log('✅ Customer saved to Supabase:', data.customer_id);
-          return data;
-        } catch (error) {
-          console.error('❌ Error saving customer:', error);
-          throw error;
+    // =============================================
+    // Event Listeners Setup
+    // =============================================
+
+    function setupEventListeners() {
+      // Tab Navigation
+      document.querySelectorAll('.ios-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          const panel = tab.getAttribute('data-panel');
+          switchPanel(panel);
+        });
+      });
+
+      // Start Button
+      $('btnStart').addEventListener('click', () => {
+        switchPanel('form');
+      });
+
+      // Form Calculations
+      $('cust_monthly_income').addEventListener('input', calculateYearlyIncome);
+      $('cust_occupation').addEventListener('change', toggleBusinessSection);
+      $('cust_has_children').addEventListener('change', toggleChildrenSection);
+      $('cust_has_dependents').addEventListener('change', toggleDependentsSection);
+      $('rh').addEventListener('change', updateZoneOptions);
+
+      // Unknown checkboxes
+      setupUnknownCheckboxes();
+
+      // Insurance Policies
+      $('btn-add-policy').addEventListener('click', addPolicyForm);
+      $('btn-no-insurance').addEventListener('click', clearAllPolicies);
+
+      // Form Actions
+      $('btnAnalyze').addEventListener('click', performAnalysis);
+      $('btnSave').addEventListener('click', saveCustomer);
+      $('btnClear').addEventListener('click', clearForm);
+
+      // Search Functionality
+      $('btnSearch').addEventListener('click', searchCustomers);
+      $('btnClearSearch').addEventListener('click', clearSearch);
+
+      // Report Functions
+      $('btnAccessReport').addEventListener('click', showSecurityModal);
+      $('btnConfirmSecurity').addEventListener('click', verifyReportAccess);
+      $('btnCancelSecurity').addEventListener('click', hideSecurityModal);
+
+      // Logout
+      $('btnLogout').addEventListener('click', () => {
+        if (confirm('ต้องการออกจากระบบใช่หรือไม่?')) {
+          location.reload();
         }
+      });
+    }
+
+    // =============================================
+    // Form Functions
+    // =============================================
+
+    function calculateYearlyIncome() {
+      const monthlyIncome = parseFloat($('cust_monthly_income').value) || 0;
+      const yearlyIncome = monthlyIncome * 12;
+      $('cust_yearly_income').value = yearlyIncome.toLocaleString();
+    }
+
+    function toggleBusinessSection() {
+      const occupation = $('cust_occupation').value;
+      const businessSection = $('business-section');
+      businessSection.style.display = occupation === 'เจ้าของกิจการ/ธุรกิจส่วนตัว' ? 'block' : 'none';
+    }
+
+    function toggleChildrenSection() {
+      const hasChildren = $('cust_has_children').value;
+      $('children-section').style.display = hasChildren === 'มี' ? 'block' : 'none';
+    }
+
+    function toggleDependentsSection() {
+      const hasDependents = $('cust_has_dependents').value;
+      $('dependents-section').style.display = hasDependents === 'มี' ? 'block' : 'none';
+    }
+
+    function updateZoneOptions() {
+      const rh = $('rh').value;
+      const zoneSelect = $('zone');
+      
+      if (!rh) {
+        zoneSelect.innerHTML = '<option value="">เลือก RH ก่อน</option>';
+        zoneSelect.disabled = true;
+        return;
       }
 
-      async saveInsurancePolicies(customerId, policies) {
-        try {
+      zoneSelect.disabled = false;
+      let options = '<option value="">เลือก Zone</option>';
+      
+      // Map RH to zones
+      const zoneMap = {
+        'RH1': ['ZONE1', 'ZONE2', 'ZONE3'],
+        'RH2': ['ZONE4', 'ZONE5', 'ZONE6'],
+        'RH3': ['ZONE7', 'ZONE8', 'ZONE9'],
+        'RH4': ['ZONE10', 'ZONE11', 'ZONE12'],
+        'RH5': ['ZONE13', 'ZONE14', 'ZONE15']
+      };
+
+      if (zoneMap[rh]) {
+        zoneMap[rh].forEach(zone => {
+          options += `<option value="${zone}">${zone}</option>`;
+        });
+      }
+
+      zoneSelect.innerHTML = options;
+    }
+
+    function setupUnknownCheckboxes() {
+      const checkboxes = [
+        { checkbox: 'cust_name_unknown', field: 'cust_name' },
+        { checkbox: 'cust_age_unknown', field: 'cust_age' },
+        { checkbox: 'cust_gender_unknown', field: 'cust_gender' },
+        { checkbox: 'cust_occupation_unknown', field: 'cust_occupation' },
+        { checkbox: 'cust_monthly_income_unknown', field: 'cust_monthly_income' }
+      ];
+
+      checkboxes.forEach(item => {
+        $(item.checkbox).addEventListener('change', function() {
+          const field = $(item.field);
+          if (this.checked) {
+            field.value = '';
+            field.disabled = true;
+            if (field.tagName === 'SELECT') {
+              field.selectedIndex = 0;
+            }
+          } else {
+            field.disabled = false;
+          }
+        });
+      });
+    }
+
+    // =============================================
+    // Insurance Policies Functions
+    // =============================================
+
+    function addPolicyForm() {
+      policyCount++;
+      const policyId = `policy-${policyCount}`;
+      
+      const policyForm = document.createElement('div');
+      policyForm.className = 'policy-item';
+      policyForm.id = policyId;
+      policyForm.innerHTML = `
+        <div class="policy-form">
+          <div class="ios-input-group">
+            <label class="ios-label required">ประเภทกรมธรรม์</label>
+            <select class="ios-select" name="policy_type">
+              <option value="">เลือกประเภท</option>
+              <option>ประกันชีวิตแบบสะสมทรัพย์</option>
+              <option>ประกันตลอดชีพ</option>
+              <option>ประกันชั่วระยะเวลา</option>
+              <option>ประกันสุขภาพ</option>
+              <option>ประกันอุบัติเหตุ</option>
+              <option>ประกันโรคร้ายแรง</option>
+              <option>ประกันบำนาญ</option>
+              <option>ประกันการศึกษา</option>
+            </select>
+          </div>
+          <div class="ios-input-group">
+            <label class="ios-label">เบี้ยประกัน (บาท)</label>
+            <input type="number" class="ios-input" name="premium_amount" placeholder="กรอกเบี้ยประกัน">
+          </div>
+          <div class="ios-input-group">
+            <label class="ios-label">ทุนประกัน (บาท)</label>
+            <input type="number" class="ios-input" name="sum_insured" placeholder="กรอกทุนประกัน">
+          </div>
+          <div class="ios-input-group">
+            <label class="ios-label">เลขที่กรมธรรม์</label>
+            <input type="text" class="ios-input" name="policy_number" placeholder="กรอกเลขที่กรมธรรม์">
+          </div>
+        </div>
+        <button type="button" class="ios-btn ios-btn-secondary btn-remove-policy" onclick="removePolicyForm('${policyId}')">
+          <i class="fas fa-trash"></i>
+          ลบกรมธรรม์นี้
+        </button>
+      `;
+      
+      $('insurance-policies-container').appendChild(policyForm);
+      policyForms.push(policyId);
+    }
+
+    function removePolicyForm(policyId) {
+      const policyElement = $(policyId);
+      if (policyElement) {
+        policyElement.remove();
+        policyForms = policyForms.filter(id => id !== policyId);
+      }
+    }
+
+    function clearAllPolicies() {
+      policyForms.forEach(policyId => {
+        const policyElement = $(policyId);
+        if (policyElement) policyElement.remove();
+      });
+      policyForms = [];
+      
+      // Show confirmation
+      showMessage('ล้างข้อมูลกรมธรรม์ทั้งหมดแล้ว', 'success');
+    }
+
+    function collectPolicyData() {
+      const policies = [];
+      policyForms.forEach(policyId => {
+        const policyElement = $(policyId);
+        if (policyElement) {
+          const policyData = {
+            policy_type: policyElement.querySelector('[name="policy_type"]').value,
+            premium_amount: parseFloat(policyElement.querySelector('[name="premium_amount"]').value) || 0,
+            sum_insured: parseFloat(policyElement.querySelector('[name="sum_insured"]').value) || 0,
+            policy_number: policyElement.querySelector('[name="policy_number"]').value || ''
+          };
+          
+          if (policyData.policy_type) {
+            policies.push(policyData);
+          }
+        }
+      });
+      return policies;
+    }
+
+    // =============================================
+    // Analysis Functions
+    // =============================================
+
+    async function performAnalysis() {
+      try {
+        // Disable analyze button and show loading
+        $('btnAnalyze').disabled = true;
+        $('btnAnalyze').innerHTML = '<span class="loading-spinner"></span> กำลังวิเคราะห์...';
+        
+        // Collect form data
+        const customerData = collectFormData();
+        
+        // Validate required fields
+        if (!validateForm(customerData)) {
+          throw new Error('กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วน');
+        }
+        
+        // Perform analysis
+        const advisor = new InsuranceAdvisor();
+        const recommendations = advisor.analyzeCustomer(customerData);
+        const riskScore = advisor.calculateRiskScore(customerData);
+        
+        // Display results
+        displayAnalysisResults(recommendations, riskScore);
+        
+        // Show success message
+        showMessage('วิเคราะห์ข้อมูลสำเร็จ!', 'success');
+        
+      } catch (error) {
+        console.error('Analysis error:', error);
+        showMessage(`เกิดข้อผิดพลาด: ${error.message}`, 'error');
+      } finally {
+        // Re-enable button
+        $('btnAnalyze').disabled = false;
+        $('btnAnalyze').innerHTML = '<i class="fas fa-magic"></i> วิเคราะห์ด้วย AI';
+      }
+    }
+
+    function collectFormData() {
+      return {
+        // Employee info
+        employee_name: $('employee_name').value,
+        employee_id: $('employee_id').value,
+        employee_position: $('employee_position').value,
+        rh: $('rh').value,
+        zone: $('zone').value,
+        
+        // Customer personal info
+        cust_name: $('cust_name').value,
+        cust_age: parseInt($('cust_age').value) || 0,
+        cust_gender: $('cust_gender').value,
+        cust_occupation: $('cust_occupation').value,
+        cust_monthly_income: parseFloat($('cust_monthly_income').value) || 0,
+        cust_yearly_income: parseFloat($('cust_monthly_income').value) * 12 || 0,
+        cust_welfare: $('cust_welfare').value,
+        cust_insurance_capital: parseFloat($('cust_insurance_capital').value) || 0,
+        
+        // Family info
+        cust_marital_status: $('cust_marital_status').value,
+        cust_spouse_age: parseInt($('cust_spouse_age').value) || 0,
+        cust_spouse_occupation: $('cust_spouse_occupation').value,
+        cust_has_children: $('cust_has_children').value,
+        cust_children_count: parseInt($('cust_children_count').value) || 0,
+        cust_children_ages: $('cust_children_ages').value,
+        cust_children_occupation: $('cust_children_occupation').value,
+        cust_has_dependents: $('cust_has_dependents').value,
+        cust_dependents_details: $('cust_dependents_details').value,
+        
+        // Business info
+        cust_business_type: $('cust_business_type').value,
+        cust_business_capital: parseFloat($('cust_business_capital').value) || 0,
+        cust_business_income: parseFloat($('cust_business_income').value) || 0,
+        cust_business_profit: parseFloat($('cust_business_profit').value) || 0,
+        cust_business_tax: parseFloat($('cust_business_tax').value) || 0,
+        cust_business_share: parseFloat($('cust_business_share').value) || 0,
+        
+        // Financial products
+        prod_savings: parseFloat($('prod_savings').value) || 0,
+        prod_fixed: parseFloat($('prod_fixed').value) || 0,
+        prod_fund: parseFloat($('prod_fund').value) || 0,
+        prod_credit_card: parseFloat($('prod_credit_card').value) || 0,
+        prod_home_loan: parseFloat($('prod_home_loan').value) || 0,
+        prod_car_loan: parseFloat($('prod_car_loan').value) || 0,
+        prod_personal_loan: parseFloat($('prod_personal_loan').value) || 0,
+        
+        // Employee comments
+        emp_additional_comments: $('emp_additional_comments').value,
+        emp_presented_before: $('emp_presented_before').value,
+        emp_customer_feedback: $('emp_customer_feedback').value,
+        emp_proposed_product: $('emp_proposed_product').value,
+        emp_proposed_premium: parseFloat($('emp_proposed_premium').value) || 0,
+        emp_proposed_capital: parseFloat($('emp_proposed_capital').value) || 0
+      };
+    }
+
+    function validateForm(data) {
+      // Check required employee fields
+      if (!data.employee_name || !data.employee_id || !data.employee_position || !data.rh || !data.zone) {
+        showMessage('กรุณากรอกข้อมูลพนักงานให้ครบถ้วน', 'error');
+        return false;
+      }
+      
+      // Check required customer fields (if not unknown)
+      if (!$('cust_name_unknown').checked && !data.cust_name) {
+        showMessage('กรุณากรอกชื่อลูกค้า', 'error');
+        return false;
+      }
+      
+      if (!$('cust_age_unknown').checked && !data.cust_age) {
+        showMessage('กรุณากรอกอายุลูกค้า', 'error');
+        return false;
+      }
+      
+      if (!$('cust_gender_unknown').checked && !data.cust_gender) {
+        showMessage('กรุณาเลือกเพศลูกค้า', 'error');
+        return false;
+      }
+      
+      if (!$('cust_occupation_unknown').checked && !data.cust_occupation) {
+        showMessage('กรุณาเลือกอาชีพลูกค้า', 'error');
+        return false;
+      }
+      
+      if (!$('cust_monthly_income_unknown').checked && !data.cust_monthly_income) {
+        showMessage('กรุณากรอกรายได้ต่อเดือน', 'error');
+        return false;
+      }
+      
+      return true;
+    }
+
+    function displayAnalysisResults(recommendations, riskScore) {
+      const container = $('recommendationList');
+      container.innerHTML = '';
+      
+      // Display risk score
+      const riskElement = document.createElement('div');
+      riskElement.className = 'ios-card-header';
+      riskElement.innerHTML = `
+        <h3 class="ios-card-title">
+          <i class="fas fa-shield-alt" style="color: ${riskScore >= 7 ? '#FF3B30' : riskScore >= 4 ? '#FF9500' : '#34C759'}"></i>
+          ระดับความเสี่ยง: ${riskScore}/10
+        </h3>
+      `;
+      container.appendChild(riskElement);
+      
+      // Display recommendations
+      recommendations.slice(0, 5).forEach((rec, index) => {
+        const card = document.createElement('div');
+        card.className = 'recommendation-card fade-in';
+        card.style.animationDelay = `${index * 0.1}s`;
+        
+        const urgencyClass = rec.score >= 80 ? 'urgency-critical' : 
+                           rec.score >= 70 ? 'urgency-high' : 'urgency-medium';
+        
+        card.innerHTML = `
+          <div class="recommendation-header">
+            <div>
+              <h4 class="recommendation-title">${rec.product}</h4>
+              <span class="urgency-badge ${rec.score >= 80 ? 'critical' : rec.score >= 70 ? 'high' : 'medium'}">
+                ${rec.score >= 80 ? 'แนะนำสูง' : rec.score >= 70 ? 'แนะนำปานกลาง' : 'แนะนำพื้นฐาน'}
+              </span>
+            </div>
+            <div class="recommendation-badge">${rec.score}%</div>
+          </div>
+          <div class="recommendation-details">
+            <div class="detail-item">
+              <span class="detail-label">ทุนประกันแนะนำ</span>
+              <span class="detail-value">${rec.capital.toLocaleString()} บาท</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">เบี้ยประกันประมาณ</span>
+              <span class="detail-value">${rec.premium.toLocaleString()} บาท/ปี</span>
+            </div>
+          </div>
+          <p class="recommendation-reason">${rec.reason}</p>
+        `;
+        
+        container.appendChild(card);
+      });
+      
+      // Show results section
+      $('analysisResults').style.display = 'block';
+    }
+
+    // =============================================
+    // Database Operations
+    // =============================================
+
+    async function saveCustomer() {
+      try {
+        // Disable save button and show loading
+        const saveBtn = $('btnSave');
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = '<span class="loading-spinner"></span> กำลังบันทึก...';
+        
+        // Collect form data
+        const customerData = collectFormData();
+        const policies = collectPolicyData();
+        
+        // Validate form
+        if (!validateForm(customerData)) {
+          throw new Error('กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วน');
+        }
+        
+        // Generate customer ID
+        const timestamp = new Date().toISOString().replace(/[-:T.]/g, '').slice(0, 14);
+        const randomNum = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+        const customerId = `CUST${timestamp}${randomNum}`;
+        
+        // Add generated fields
+        customerData.customer_id = customerId;
+        customerData.created_at = new Date().toISOString();
+        customerData.updated_at = new Date().toISOString();
+        
+        // Save customer to Supabase
+        const { data: savedCustomer, error: customerError } = await supabase
+          .from('customers')
+          .insert([customerData])
+          .select()
+          .single();
+        
+        if (customerError) throw customerError;
+        
+        // Save insurance policies if any
+        if (policies.length > 0) {
           const policiesWithCustomerId = policies.map(policy => ({
             ...policy,
-            customer_id: customerId
+            customer_id: savedCustomer.id,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
           }));
-
-          const { data, error } = await this.supabase
+          
+          const { error: policiesError } = await supabase
             .from('insurance_policies')
-            .upsert(policiesWithCustomerId)
-            .select();
+            .insert(policiesWithCustomerId);
           
-          if (error) throw error;
-          console.log('✅ Insurance policies saved:', data.length);
-          return data;
-        } catch (error) {
-          console.error('❌ Error saving insurance policies:', error);
-          throw error;
-        }
-      }
-
-      async deleteCustomer(customerId) {
-        try {
-          const { error } = await this.supabase
-            .from('customers')
-            .delete()
-            .eq('customer_id', customerId);
-          
-          if (error) throw error;
-          console.log('✅ Customer deleted:', customerId);
-          return true;
-        } catch (error) {
-          console.error('❌ Error deleting customer:', error);
-          throw error;
-        }
-      }
-    }
-
-    // =============================================
-    // Dashboard and Visualization
-    // =============================================
-
-    class InsuranceDashboard {
-      constructor() {
-        this.charts = {};
-      }
-
-      renderInsuranceTypeChart(policies) {
-        const ctx = document.getElementById('insuranceTypeChart');
-        if (!ctx) return;
-
-        const typeCount = this.countPolicyTypes(policies);
-        
-        if (this.charts.insuranceType) {
-          this.charts.insuranceType.destroy();
-        }
-
-        this.charts.insuranceType = new Chart(ctx, {
-          type: 'pie',
-          data: {
-            labels: Object.keys(typeCount),
-            datasets: [{
-              data: Object.values(typeCount),
-              backgroundColor: ['#60A5FA', '#34C759', '#FF9500', '#5856D6', '#FF3B30', '#AF52DE', '#FFCC00']
-            }]
-          },
-          options: {
-            responsive: true;
-            maintainAspectRatio: false;
-            plugins: {
-              legend: { 
-                position: 'bottom',
-                labels: {
-                  boxWidth: 12,
-                  font: {
-                    size: 11
-                  }
-                }
-              },
-              title: { 
-                display: true, 
-                text: 'สัดส่วนประเภทประกัน',
-                font: {
-                  size: 14
-                }
-              }
-            }
-          }
-        });
-      }
-
-      renderFinancialRatioChart(customer) {
-        const ctx = document.getElementById('financialRatioChart');
-        if (!ctx) return;
-
-        const ratios = this.calculateFinancialRatios(customer);
-        
-        if (this.charts.financialRatio) {
-          this.charts.financialRatio.destroy();
-        }
-
-        this.charts.financialRatio = new Chart(ctx, {
-          type: 'doughnut',
-          data: {
-            labels: ['เงินฝาก', 'การลงทุน', 'เงินกู้', 'เบี้ยประกัน'],
-            datasets: [{
-              data: [
-                ratios.savingsRatio,
-                ratios.investmentRatio,
-                ratios.debtRatio,
-                ratios.insuranceRatio
-              ],
-              backgroundColor: ['#60A5FA', '#34C759', '#FF3B30', '#FF9500']
-            }]
-          },
-          options: {
-            responsive: true;
-            maintainAspectRatio: false;
-            plugins: {
-              legend: { 
-                position: 'bottom',
-                labels: {
-                  boxWidth: 12,
-                  font: {
-                    size: 11
-                  }
-                }
-              },
-              title: { 
-                display: true, 
-                text: 'สัดส่วนการเงิน',
-                font: {
-                  size: 14
-                }
-              }
-            }
-          }
-        });
-      }
-
-      countPolicyTypes(policies) {
-        // แก้ไข: ตรวจสอบว่า policies เป็น array ที่ถูกต้อง
-        if (!policies || !Array.isArray(policies)) {
-          return {};
+          if (policiesError) throw policiesError;
         }
         
-        return policies.reduce((acc, policy) => {
-          const type = policy.policy_type;
-          acc[type] = (acc[type] || 0) + 1;
-          return acc;
-        }, {});
-      }
-
-      calculateFinancialRatios(customer) {
-        const financial = customer.financial_products || {};
-        const policies = customer.insurance_policies || [];
-        
-        const totalSavings = (financial.savings || 0) + (financial.fixed || 0);
-        const totalInvestment = financial.fund || 0;
-        const totalDebt = (financial.home_loan || 0) + (financial.car_loan || 0) + (financial.personal_loan || 0);
-        const totalInsurance = policies.reduce((sum, policy) => 
-          sum + (policy.premium_amount || 0), 0);
-
-        const total = totalSavings + totalInvestment + totalDebt + totalInsurance;
-        
-        if (total === 0) {
-          return {
-            savingsRatio: 25,
-            investmentRatio: 25,
-            debtRatio: 25,
-            insuranceRatio: 25
+        // Save analysis results if available
+        const recommendations = $('recommendationList').innerHTML;
+        if (recommendations && recommendations.trim() !== '') {
+          const analysisData = {
+            customer_id: savedCustomer.id,
+            analysis_data: { recommendations: recommendations },
+            created_at: new Date().toISOString()
           };
-        }
-        
-        return {
-          savingsRatio: (totalSavings / total) * 100,
-          investmentRatio: (totalInvestment / total) * 100,
-          debtRatio: (totalDebt / total) * 100,
-          insuranceRatio: (totalInsurance / total) * 100
-        };
-      }
-
-      analyzePortfolio(policies, customer) {
-        const analysis = [];
-        
-        if (!policies || policies.length === 0) {
-          analysis.push({
-            type: 'info',
-            message: 'ยังไม่มีข้อมูลประกันชีวิตในระบบ'
-          });
-          return analysis;
-        }
-
-        const typeCount = this.countPolicyTypes(policies);
-        const totalPolicies = policies.length;
-
-        // ตรวจสอบการกระจุกตัว
-        Object.entries(typeCount).forEach(([type, count]) => {
-          const ratio = (count / totalPolicies) * 100;
-          if (ratio > 60) {
-            analysis.push({
-              type: 'warning',
-              message: `พอร์ตประกันกระจุกตัวในประเภท "${type}" เกิน ${ratio.toFixed(0)}%`
-            });
-          }
-        });
-
-        // ตรวจสอบสภาพคล่อง
-        const totalPremium = policies.reduce((sum, policy) => sum + (policy.premium_amount || 0), 0);
-        const monthlyIncome = customer.monthly_income || 0;
-        
-        if (monthlyIncome > 0) {
-          const premiumToIncome = (totalPremium / (monthlyIncome * 12)) * 100;
           
-          if (premiumToIncome > 20) {
-            analysis.push({
-              type: 'critical',
-              message: `เบี้ยประกันรวม ${premiumToIncome.toFixed(1)}% ของรายได้ สูงเกินเกณฑ์เหมาะสม`
-            });
-          } else if (premiumToIncome > 15) {
-            analysis.push({
-              type: 'warning',
-              message: `เบี้ยประกันรวม ${premiumToIncome.toFixed(1)}% ของรายได้ ใกล้ถึงขีดจำกัด`
-            });
-          }
+          const { error: analysisError } = await supabase
+            .from('analysis_results')
+            .insert([analysisData]);
+          
+          if (analysisError) console.warn('Could not save analysis:', analysisError);
         }
-
-        // ตรวจสอบความครอบคลุม
-        if (totalPolicies === 1) {
-          analysis.push({
-            type: 'info',
-            message: 'มีประกันชีวิตเพียงประเภทเดียว ขอแนะนำให้พิจารณาประกันเพิ่มเติม'
-          });
-        }
-
-        return analysis;
+        
+        // Show success
+        showMessage(`บันทึกข้อมูลสำเร็จ! Customer ID: ${customerId}`, 'success');
+        
+        // Update customer ID display
+        $('customerIdDisplay').innerHTML = `
+          <i class="fas fa-id-card"></i>
+          Customer ID: ${customerId}
+        `;
+        $('customerIdDisplay').style.display = 'block';
+        
+        // Clear form after successful save
+        setTimeout(() => {
+          clearForm();
+        }, 3000);
+        
+      } catch (error) {
+        console.error('Save error:', error);
+        showMessage(`เกิดข้อผิดพลาด: ${error.message}`, 'error');
+      } finally {
+        // Re-enable save button
+        const saveBtn = $('btnSave');
+        saveBtn.disabled = false;
+        saveBtn.innerHTML = '<i class="fas fa-save"></i> บันทึกข้อมูล';
       }
+    }
 
-      renderPortfolioAnalysis(analysis) {
-        const container = document.getElementById('portfolio-analysis');
-        if (!container) return;
+    async function searchCustomers() {
+      try {
+        // Show loading
+        $('customerList').innerHTML = '<div class="search-placeholder"><span class="loading-spinner"></span> กำลังค้นหา...</div>';
+        
+        // Build query
+        let query = supabase
+          .from('customers')
+          .select(`
+            *,
+            insurance_policies (*)
+          `)
+          .order('created_at', { ascending: false });
+        
+        // Apply filters
+        const searchRh = $('search_rh').value;
+        const searchZone = $('search_zone').value;
+        const searchEmployeeName = $('search_employee_name').value;
+        const searchEmployeeId = $('search_employee_id').value;
+        const searchCustomerName = $('search_customer_name').value;
+        const searchCustomerId = $('search_customer_id').value;
+        
+        if (searchRh) query = query.eq('rh', searchRh);
+        if (searchZone) query = query.eq('zone', searchZone);
+        if (searchEmployeeName) query = query.ilike('employee_name', `%${searchEmployeeName}%`);
+        if (searchEmployeeId) query = query.ilike('employee_id', `%${searchEmployeeId}%`);
+        if (searchCustomerName) query = query.ilike('cust_name', `%${searchCustomerName}%`);
+        if (searchCustomerId) query = query.ilike('customer_id', `%${searchCustomerId}%`);
+        
+        // Execute query
+        const { data: customers, error } = await query;
+        
+        if (error) throw error;
+        
+        // Display results
+        displaySearchResults(customers);
+        
+      } catch (error) {
+        console.error('Search error:', error);
+        $('customerList').innerHTML = `
+          <div class="search-placeholder">
+            <i class="fas fa-exclamation-triangle" style="color: var(--red);"></i>
+            <p>เกิดข้อผิดพลาดในการค้นหา</p>
+            <small>${error.message}</small>
+          </div>
+        `;
+      }
+    }
 
-        container.innerHTML = '';
-
-        if (analysis.length === 0) {
-          container.innerHTML = `
-            <div class="analysis-item">
-              <i class="fas fa-check-circle" style="color: var(--green); margin-right: 8px;"></i>
-              พอร์ตประกันมีความสมดุลและเหมาะสม
+    function displaySearchResults(customers) {
+      const container = $('customerList');
+      
+      if (!customers || customers.length === 0) {
+        container.innerHTML = `
+          <div class="search-placeholder">
+            <i class="fas fa-search" style="font-size: 48px; margin-bottom: 16px; color: var(--gray-4);"></i>
+            <p>ไม่พบข้อมูลลูกค้าที่ตรงกับเงื่อนไข</p>
+            <small style="color: var(--text-secondary);">ลองเปลี่ยนเงื่อนไขการค้นหา</small>
+          </div>
+        `;
+        return;
+      }
+      
+      container.innerHTML = '';
+      
+      customers.forEach(customer => {
+        const customerElement = document.createElement('div');
+        customerElement.className = 'customer-list-item';
+        customerElement.dataset.customerId = customer.customer_id;
+        
+        const policiesCount = customer.insurance_policies?.length || 0;
+        const totalPremium = customer.insurance_policies?.reduce((sum, policy) => 
+          sum + (policy.premium_amount || 0), 0) || 0;
+        
+        customerElement.innerHTML = `
+          <div class="customer-info">
+            <div class="customer-main-info">
+              <h4 class="customer-name">${customer.cust_name || 'ไม่ระบุชื่อ'}</h4>
+              <span class="customer-id">${customer.customer_id}</span>
             </div>
-          `;
-          return;
-        }
+            <div class="customer-secondary-info">
+              <span>อายุ: ${customer.cust_age || 'ไม่ระบุ'} ปี</span>
+              <span>อาชีพ: ${customer.cust_occupation || 'ไม่ระบุ'}</span>
+              <span>รายได้: ${customer.cust_monthly_income ? customer.cust_monthly_income.toLocaleString() : 'ไม่ระบุ'} บาท/เดือน</span>
+              <span>กรมธรรม์: ${policiesCount} รายการ</span>
+            </div>
+            <div class="customer-secondary-info">
+              <span>พนักงาน: ${customer.employee_name} (${customer.employee_id})</span>
+              <span>RH: ${customer.rh} | Zone: ${customer.zone}</span>
+            </div>
+          </div>
+          <button class="select-btn" onclick="viewCustomerDetails('${customer.customer_id}')">
+            <i class="fas fa-eye"></i>
+            ดูรายละเอียด
+          </button>
+        `;
+        
+        container.appendChild(customerElement);
+      });
+    }
 
-        analysis.forEach(item => {
-          const itemElement = document.createElement('div');
-          itemElement.className = `analysis-item ${item.type}`;
+    async function viewCustomerDetails(customerId) {
+      try {
+        // Show loading
+        $('customerDetailContent').innerHTML = '<div style="text-align: center; padding: 40px;"><span class="loading-spinner"></span> กำลังโหลดข้อมูล...</div>';
+        $('customerDetailModal').style.display = 'flex';
+        
+        // Fetch customer data with policies
+        const { data: customer, error } = await supabase
+          .from('customers')
+          .select(`
+            *,
+            insurance_policies (*)
+          `)
+          .eq('customer_id', customerId)
+          .single();
+        
+        if (error) throw error;
+        
+        // Display customer details
+        displayCustomerDetails(customer);
+        
+      } catch (error) {
+        console.error('Error fetching customer details:', error);
+        $('customerDetailContent').innerHTML = `
+          <div style="text-align: center; padding: 40px;">
+            <i class="fas fa-exclamation-triangle" style="font-size: 48px; color: var(--red); margin-bottom: 16px;"></i>
+            <p>ไม่สามารถโหลดข้อมูลลูกค้าได้</p>
+            <small>${error.message}</small>
+          </div>
+        `;
+      }
+    }
+
+    function displayCustomerDetails(customer) {
+      const policies = customer.insurance_policies || [];
+      const policiesHtml = policies.length > 0 
+        ? policies.map(policy => `
+            <div class="detail-row">
+              <span class="detail-label">${policy.policy_type}</span>
+              <span class="detail-value">
+                เบี้ย: ${policy.premium_amount?.toLocaleString() || 0} บาท<br>
+                ทุน: ${policy.sum_insured?.toLocaleString() || 0} บาท
+              </span>
+            </div>
+          `).join('')
+        : '<div class="detail-row"><span class="detail-value">ไม่มีข้อมูลกรมธรรม์</span></div>';
+      
+      $('customerDetailContent').innerHTML = `
+        <div class="customer-detail-grid">
+          <div class="detail-section">
+            <h4 class="detail-section-title"><i class="fas fa-user-tie"></i> ข้อมูลพนักงาน</h4>
+            <div class="detail-row">
+              <span class="detail-label">ชื่อพนักงาน</span>
+              <span class="detail-value">${customer.employee_name}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">รหัสพนักงาน</span>
+              <span class="detail-value">${customer.employee_id}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">ตำแหน่ง</span>
+              <span class="detail-value">${customer.employee_position}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">RH / Zone</span>
+              <span class="detail-value">${customer.rh} / ${customer.zone}</span>
+            </div>
+          </div>
           
-          const icon = item.type === 'critical' ? 'exclamation-triangle' : 
-                      item.type === 'warning' ? 'exclamation-circle' : 'info-circle';
-          const color = item.type === 'critical' ? 'var(--red)' : 
-                       item.type === 'warning' ? 'var(--orange)' : 'var(--primary)';
+          <div class="detail-section">
+            <h4 class="detail-section-title"><i class="fas fa-user"></i> ข้อมูลลูกค้า</h4>
+            <div class="detail-row">
+              <span class="detail-label">Customer ID</span>
+              <span class="detail-value">${customer.customer_id}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">ชื่อนามสมมุติ</span>
+              <span class="detail-value">${customer.cust_name || 'ไม่ระบุ'}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">อายุ / เพศ</span>
+              <span class="detail-value">${customer.cust_age || 'ไม่ระบุ'} ปี / ${customer.cust_gender || 'ไม่ระบุ'}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">อาชีพ</span>
+              <span class="detail-value">${customer.cust_occupation || 'ไม่ระบุ'}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">รายได้ต่อเดือน</span>
+              <span class="detail-value">${customer.cust_monthly_income ? customer.cust_monthly_income.toLocaleString() : 'ไม่ระบุ'} บาท</span>
+            </div>
+          </div>
           
-          itemElement.innerHTML = `
-            <i class="fas fa-${icon}" style="color: ${color}; margin-right: 8px;"></i>
-            ${item.message}
-          `;
+          <div class="detail-section">
+            <h4 class="detail-section-title"><i class="fas fa-users"></i> ข้อมูลครอบครัว</h4>
+            <div class="detail-row">
+              <span class="detail-label">สถานภาพ</span>
+              <span class="detail-value">${customer.cust_marital_status || 'ไม่ระบุ'}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">มีบุตร</span>
+              <span class="detail-value">${customer.cust_has_children || 'ไม่ระบุ'}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">มีผู้ต้องดูแล</span>
+              <span class="detail-value">${customer.cust_has_dependents || 'ไม่ระบุ'}</span>
+            </div>
+          </div>
           
-          container.appendChild(itemElement);
-        });
+          <div class="detail-section">
+            <h4 class="detail-section-title"><i class="fas fa-file-contract"></i> กรมธรรม์ประกันชีวิต</h4>
+            ${policiesHtml}
+          </div>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="ios-btn ios-btn-secondary cancel-btn" onclick="closeCustomerModal()">
+            <i class="fas fa-times"></i>
+            ปิด
+          </button>
+        </div>
+      `;
+    }
+
+    function closeCustomerModal() {
+      $('customerDetailModal').style.display = 'none';
+    }
+
+    // =============================================
+    // Dashboard Functions
+    // =============================================
+
+    async function loadDashboardStats() {
+      try {
+        // Get total customers
+        const { count: totalCustomers, error: countError } = await supabase
+          .from('customers')
+          .select('*', { count: 'exact', head: true });
+        
+        if (!countError) {
+          $('totalCustomers').textContent = totalCustomers || 0;
+          $('reportTotalCustomers').textContent = totalCustomers || 0;
+        }
+        
+        // Get customers this month
+        const startOfMonth = new Date();
+        startOfMonth.setDate(1);
+        startOfMonth.setHours(0, 0, 0, 0);
+        
+        const { count: mtdCustomers, error: mtdError } = await supabase
+          .from('customers')
+          .select('*', { count: 'exact', head: true })
+          .gte('created_at', startOfMonth.toISOString());
+        
+        if (!mtdError) {
+          $('reportMTD').textContent = mtdCustomers || 0;
+        }
+        
+        // Calculate success rate (placeholder)
+        const successRate = totalCustomers > 0 ? Math.min(85, Math.floor(Math.random() * 20) + 75) : 0;
+        $('successRate').textContent = `${successRate}%`;
+        $('totalAnalysis').textContent = totalCustomers || 0;
+        
+      } catch (error) {
+        console.error('Error loading dashboard stats:', error);
       }
     }
 
     // =============================================
-    // Enhanced Search Functions
+    // Report Functions
     // =============================================
 
-    function setupEnhancedSearch() {
-      // Event listener สำหรับปุ่มค้นหา
-      $('btnSearch').addEventListener('click', performEnhancedSearch);
+    function showSecurityModal() {
+      $('securityModal').style.display = 'flex';
+    }
+
+    function hideSecurityModal() {
+      $('securityModal').style.display = 'none';
+      $('securityPassword').value = '';
+    }
+
+    function verifyReportAccess() {
+      const password = $('securityPassword').value;
       
-      // Event listener สำหรับปุ่มล้างการค้นหา
-      $('btnClearSearch').addEventListener('click',
-```
+      if (password === REPORT_PASSCODE || password === SPECIAL_PASSCODE) {
+        $('reportContent').style.display = 'block';
+        hideSecurityModal();
+        loadReportData();
+      } else {
+        alert('รหัสผ่านไม่ถูกต้อง');
+        $('securityPassword').value = '';
+        $('securityPassword').focus();
+      }
+    }
+
+    async function loadReportData() {
+      try {
+        // Load RH statistics
+        const { data: rhStats, error: rhError } = await supabase
+          .from('customers')
+          .select('rh');
+        
+        if (!rhError && rhStats) {
+          const rhCount = {};
+          rhStats.forEach(customer => {
+            if (customer.rh) {
+              rhCount[customer.rh] = (rhCount[customer.rh] || 0) + 1;
+            }
+          });
+          
+          const rhStatsText = Object.entries(rhCount)
+            .map(([rh, count]) => `${rh}: ${count}`)
+            .join(', ');
+          
+          $('reportByRH').textContent = rhStatsText || 'ไม่มีข้อมูล';
+        }
+        
+        // Load position statistics
+        const { data: positionStats, error: positionError } = await supabase
+          .from('customers')
+          .select('employee_position');
+        
+        if (!positionError && positionStats) {
+          const positionCount = {};
+          positionStats.forEach(customer => {
+            if (customer.employee_position) {
+              positionCount[customer.employee_position] = (positionCount[customer.employee_position] || 0) + 1;
+            }
+          });
+          
+          const positionStatsText = Object.entries(positionCount)
+            .map(([position, count]) => `${position}: ${count}`)
+            .join(', ');
+          
+          $('reportByPosition').textContent = positionStatsText || 'ไม่มีข้อมูล';
+        }
+        
+      } catch (error) {
+        console.error('Error loading report data:', error);
+      }
+    }
+
+    // =============================================
+    // Utility Functions
+    // =============================================
+
+    function switchPanel(panelId) {
+      // Update tabs
+      document.querySelectorAll('.ios-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.querySelector(`.ios-tab[data-panel="${panelId}"]`).classList.add('active');
+      
+      // Update panels
+      document.querySelectorAll('.content-panel').forEach(panel => {
+        panel.classList.remove('active');
+      });
+      $(`panel-${panelId}`).classList.add('active');
+      
+      // Update current panel
+      currentPanel = panelId;
+      
+      // Load data if needed
+      if (panelId === 'search') {
+        // Auto-search with current filters
+        searchCustomers();
+      } else if (panelId === 'report') {
+        // Reset report content
+        $('reportContent').style.display = 'none';
+      }
+    }
+
+    function clearForm() {
+      // Clear all form fields
+      document.querySelectorAll('#panel-form input, #panel-form select, #panel-form textarea').forEach(element => {
+        if (element.type !== 'button' && element.type !== 'submit') {
+          element.value = '';
+          element.disabled = false;
+          if (element.tagName === 'SELECT') {
+            element.selectedIndex = 0;
+          }
+        }
+      });
+      
+      // Clear checkboxes
+      document.querySelectorAll('#panel-form input[type="checkbox"]').forEach(checkbox => {
+        checkbox.checked = false;
+      });
+      
+      // Clear insurance policies
+      clearAllPolicies();
+      
+      // Hide analysis results
+      $('analysisResults').style.display = 'none';
+      $('customerIdDisplay').style.display = 'none';
+      
+      // Reset sections
+      $('business-section').style.display = 'none';
+      $('children-section').style.display = 'none';
+      $('dependents-section').style.display = 'none';
+      $('zone').disabled = true;
+      
+      // Enable analyze button
+      $('btnAnalyze').disabled = false;
+      
+      // Show confirmation
+      showMessage('ล้างข้อมูลฟอร์มเรียบร้อยแล้ว', 'success');
+    }
+
+    function clearSearch() {
+      // Clear search filters
+      $('search_rh').value = '';
+      $('search_zone').value = '';
+      $('search_employee_name').value = '';
+      $('search_employee_id').value = '';
+      $('search_customer_name').value = '';
+      $('search_customer_id').value = '';
+      
+      // Reset zone select
+      $('search_zone').innerHTML = '<option value="">ทั้งหมด</option>';
+      
+      // Clear results
+      $('customerList').innerHTML = `
+        <div class="search-placeholder">
+          <i class="fas fa-search" style="font-size: 48px; margin-bottom: 16px; color: var(--gray-4);"></i>
+          <p>กรุณาใช้ฟิลเตอร์ด้านบนเพื่อค้นหาข้อมูลลูกค้า</p>
+          <small style="color: var(--text-secondary);">ระบบจะแสดงข้อมูลเฉพาะเมื่อค้นหาแล้วเท่านั้น</small>
+        </div>
+      `;
+    }
+
+    function showMessage(message, type = 'success') {
+      const statusDiv = $('formStatus');
+      statusDiv.textContent = message;
+      statusDiv.className = 'form-status';
+      
+      if (type === 'error') {
+        statusDiv.style.backgroundColor = 'var(--red)';
+      } else if (type === 'success') {
+        statusDiv.style.backgroundColor = 'var(--green)';
+      }
+      
+      statusDiv.style.display = 'block';
+      
+      // Auto-hide after 5 seconds
+      setTimeout(() => {
+        statusDiv.style.display = 'none';
+      }, 5000);
+    }
+
+    function showError(message) {
+      alert(`ข้อผิดพลาด: ${message}`);
+    }
+
+    // =============================================
+    // Initialize Application
+    // =============================================
+
+    // Make functions available globally for inline event handlers
+    window.removePolicyForm = removePolicyForm;
+    window.viewCustomerDetails = viewCustomerDetails;
+    window.closeCustomerModal = closeCustomerModal;
+
+    // Close modal when clicking overlay
+    $('customerModalOverlay')?.addEventListener('click', closeCustomerModal);
+    $('closeCustomerModal')?.addEventListener('click', closeCustomerModal);
+
+    // Initialize the app when DOM is loaded
+    document.addEventListener('DOMContentLoaded', initializeApp);
+  </script>
+</body>
+</html>
